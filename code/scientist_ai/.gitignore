@@ -1,0 +1,26 @@
+# Rust build artifacts
+target/
+**/*.rs.bk
+
+# Cargo.lock (include for binaries, ignore for libraries)
+# Since this is a binary project, we'll keep Cargo.lock
+# Cargo.lock
+
+# Debug files
+*.pdb
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test outputs and experiment results
+experiments/output/
+results/
+*.csv.out
