@@ -4,3 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+polars = { version = "0.45", features = ["lazy", "csv"] }
+itertools = "0.13"
+statrs = "0.17"  # For Gamma function in BDeu scoring
+rand = "0.8"  # For stochastic sampling in search algorithm

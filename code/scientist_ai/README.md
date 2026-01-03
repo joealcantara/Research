@@ -23,11 +23,15 @@ src/
 ## Build Sequence
 
 - [x] Initialize Rust project with cargo
-- [ ] Set up module structure (dag.rs, inference.rs, search.rs)
-- [ ] Implement TOML config file parsing for experiment parameters
-- [ ] Implement DAG data structures and cycle detection (reference: `dag_utils.py`)
-- [ ] Implement Bayesian inference engine (reference: `inference.py`)
-- [ ] Implement structure learning search algorithm (reference: `search.py`)
+- [x] Set up module structure (dag.rs, inference.rs, search.rs)
+- [x] Implement TOML config file parsing for experiment parameters
+- [x] Implement DAG data structures and cycle detection (reference: `dag_utils.py`)
+- [x] Implement inference.rs - Phase 1: Binary variables (type detection, CPT, log-likelihood, scoring)
+- [x] Implement inference.rs - Phase 2: Categorical variables (K > 2 values, categorical likelihood)
+- [x] Implement inference.rs - Phase 3: Continuous variables (Gaussian, linear regression, continuous likelihood)
+- [x] Implement inference.rs - Phase 4: Mixed networks (discretization at median for continuous parents)
+- [x] Implement inference.rs - Phase 5: Multi-structure scoring (compute_posteriors with normalization)
+- [x] Implement structure learning search algorithm (reference: `search.py`)
 - [ ] Add test cases with known structures (chain, fork, collider)
 - [ ] Validate: Rust outputs match Python outputs on test cases
 - [ ] Retire Python/Julia implementations once validated
@@ -42,9 +46,18 @@ Based on `python/scripts/dag_utils.py`:
 
 ### inference.rs
 Based on `python/scripts/inference.py`:
-- `estimate_parameters()` - learn conditional probabilities from data
-- `score_theory()` - compute log posterior (likelihood + complexity penalty)
-- Support binary, categorical, and continuous variables
+- `get_variable_type()` - classify variables as binary, categorical, or continuous
+- `estimate_parameters()` - learn parameters from data:
+  - Binary/categorical: conditional probability tables (CPTs) with Laplace smoothing
+  - Continuous (no parents): Gaussian distribution (mean, std)
+  - Continuous (with parents): Linear regression (least squares coefficients + residual std)
+  - Mixed networks: discretize continuous parents for categorical children
+- `compute_log_likelihood()` - calculate log P(data | structure, params):
+  - Binary/categorical: multinomial likelihood
+  - Continuous: Gaussian likelihood (for marginal) or linear Gaussian (for conditional)
+- `compute_posteriors()` - BIC-like scoring:
+  - log_posterior = log_likelihood - lambda_penalty × num_edges
+  - Normalizes across structures for posterior probabilities
 
 ### search.rs
 Based on `python/scripts/search.py`:
