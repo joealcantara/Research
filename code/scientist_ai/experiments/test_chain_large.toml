@@ -1,0 +1,13 @@
+# Test: 3-variable chain with 50 samples
+
+input = "data/chain_large.csv"
+output = "results/chain_large.json"
+beam_size = 10
+max_rounds = 3
+
+# Compare all three scoring methods
+scoring = [
+    { method = "edge", lambda = 2.0 },
+    { method = "bic" },
+    { method = "bdeu", alpha = 1.0 }
+]

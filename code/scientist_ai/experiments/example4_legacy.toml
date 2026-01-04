@@ -1,0 +1,10 @@
+# Example 4: Legacy format (backwards compatible)
+
+input = "data/train.csv"
+output = "results/legacy.json"
+beam_size = 10
+max_rounds = 3
+
+# Old style: just lambda parameter
+# This gets converted to EdgeBased(lambda)
+lambda = 3.0

@@ -1,0 +1,19 @@
+SECOM 10-Variable Benchmark (Julia)
+============================================================
+
+Variables: 11
+Samples: 1567
+Best score: -44525.97
+Elapsed time: 0.87 seconds
+
+Best structure:
+  label ← [:Column6, :Column9]
+  Column4 ← [:Column5, :Column2, :Column1]
+  Column5 ← [:Column7, :Column6, :Column4, :Column3]
+  Column6 ← [:Column5, :Column7, :label, :Column9]
+  Column1 ← [:Column2, :Column3, :Column4]
+  Column7 ← [:Column5, :Column6, :Column8, :Column10]
+  Column9 ← [:Column6, :label]
+  Column3 ← [:Column1]
+  Column2 ← [:Column1, :Column4]
+  Column8 ← [:Column7]

@@ -1,0 +1,13 @@
+# Example 2: Multiple scoring methods for comparison
+
+input = "data/train.csv"
+output = "results/comparison.json"
+beam_size = 15
+max_rounds = 5
+
+# Compare three different scoring methods
+scoring = [
+    { method = "edge", lambda = 2.0 },
+    { method = "bic" },
+    { method = "bdeu", alpha = 1.0 }
+]

@@ -1,0 +1,17 @@
+Name: empty_graph
+Description: No edges - all variables independent
+Samples: 2000
+Variables: 10
+Edges: 0
+
+True Structure:
+  0: (no parents)
+  1: (no parents)
+  2: (no parents)
+  3: (no parents)
+  4: (no parents)
+  5: (no parents)
+  6: (no parents)
+  7: (no parents)
+  8: (no parents)
+  9: (no parents)

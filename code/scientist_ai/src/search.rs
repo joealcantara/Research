@@ -152,24 +152,120 @@ pub fn sample_structures(
     let mut sampled = Vec::new();
 
     while sampled.len() < k && sampled.len() < names.len() {
-        // Weighted random selection
+        // Build list of available (not yet selected) items
+        let available_indices: Vec<usize> = (0..names.len())
+            .filter(|i| !selected.contains(i))
+            .collect();
+
+        if available_indices.is_empty() {
+            break;
+        }
+
+        // Get probabilities for available items and renormalize
+        let available_probs: Vec<f64> = available_indices
+            .iter()
+            .map(|&i| probs[i])
+            .collect();
+
+        let prob_sum: f64 = available_probs.iter().sum();
+
+        // Handle edge case: if all probs are zero (shouldn't happen but be safe)
+        if prob_sum < 1e-10 {
+            // Just pick uniformly from available items
+            let idx = available_indices[rng.gen_range(0..available_indices.len())];
+            selected.insert(idx);
+            sampled.push(names[idx].clone());
+            continue;
+        }
+
+        let normalized_probs: Vec<f64> = available_probs
+            .iter()
+            .map(|p| p / prob_sum)
+            .collect();
+
+        // Sample from available items with renormalized probabilities
         let r: f64 = rng.gen_range(0.0..1.0);
         let mut cumsum = 0.0;
 
-        for (i, &prob) in probs.iter().enumerate() {
-            if selected.contains(&i) {
-                continue;
-            }
-            cumsum += prob;
-            if r < cumsum {
-                selected.insert(i);
-                sampled.push(names[i].clone());
+        for (j, &idx) in available_indices.iter().enumerate() {
+            cumsum += normalized_probs[j];
+            if r < cumsum || j == available_indices.len() - 1 {
+                // Select this item (or last item if we somehow missed due to rounding)
+                selected.insert(idx);
+                sampled.push(names[idx].clone());
                 break;
             }
         }
     }
 
     sampled
+}
+
+/// Enumerate all possible DAG structures for a given set of variables.
+///
+/// For small datasets (≤5 variables), exhaustive enumeration is feasible.
+/// Generates all possible edge combinations and filters to valid DAGs.
+///
+/// # Arguments
+/// * `variables` - List of variable names
+///
+/// # Returns
+/// Vector of all possible DAG structures
+///
+/// # Note
+/// The number of DAGs grows super-exponentially:
+/// - 3 variables: 25 DAGs
+/// - 4 variables: 543 DAGs
+/// - 5 variables: 29,281 DAGs
+/// - 6+ variables: not recommended (millions of DAGs)
+pub fn enumerate_all_dags(variables: &[String]) -> Vec<HashMap<String, Vec<String>>> {
+    let n = variables.len();
+
+    // Generate all possible directed edges
+    let mut all_edges = Vec::new();
+    for i in 0..n {
+        for j in 0..n {
+            if i != j {
+                // Edge from variables[i] to variables[j]
+                all_edges.push((i, j));
+            }
+        }
+    }
+
+    let num_possible_edges = all_edges.len();
+    let num_subsets = 1 << num_possible_edges; // 2^num_edges
+
+    let mut all_dags = Vec::new();
+
+    // Enumerate all subsets of edges (all possible graphs)
+    for subset in 0..num_subsets {
+        let mut structure = HashMap::new();
+
+        // Initialize all variables with empty parent lists
+        for var in variables {
+            structure.insert(var.clone(), vec![]);
+        }
+
+        // Add edges corresponding to this subset
+        for (edge_idx, &(parent_idx, child_idx)) in all_edges.iter().enumerate() {
+            if (subset >> edge_idx) & 1 == 1 {
+                // This edge is included in the subset
+                let parent = variables[parent_idx].clone();
+                let child = variables[child_idx].clone();
+
+                structure.entry(child.clone())
+                    .or_insert_with(Vec::new)
+                    .push(parent);
+            }
+        }
+
+        // Check if this structure is a DAG (acyclic)
+        if is_dag(&structure) {
+            all_dags.push(structure);
+        }
+    }
+
+    all_dags
 }
 
 /// Stochastic beam search for DAG structure learning.
@@ -292,6 +388,42 @@ pub fn stochastic_beam_search(
 mod tests {
     use super::*;
     use polars::df;
+
+    #[test]
+    fn test_enumerate_all_dags() {
+        println!("\n=== Testing Exhaustive DAG Enumeration ===\n");
+
+        let variables = vec!["X1".to_string(), "X2".to_string(), "X3".to_string()];
+
+        println!("Enumerating all DAGs for 3 variables...");
+        let all_dags = enumerate_all_dags(&variables);
+
+        println!("Found {} unique DAGs", all_dags.len());
+        println!("Expected: 25 DAGs for 3 variables");
+
+        // Verify we get exactly 25 DAGs for 3 variables (known result)
+        assert_eq!(all_dags.len(), 25, "Should enumerate exactly 25 DAGs for 3 variables");
+
+        // Print first few examples
+        println!("\nFirst 5 DAGs:");
+        for (i, dag) in all_dags.iter().take(5).enumerate() {
+            let edge_count: usize = dag.values().map(|p| p.len()).sum();
+            println!("  DAG {}: {} edges", i + 1, edge_count);
+            for (var, parents) in dag {
+                if !parents.is_empty() {
+                    println!("    {} ← {:?}", var, parents);
+                }
+            }
+        }
+
+        // Verify all are valid DAGs
+        for dag in &all_dags {
+            assert!(is_dag(dag), "All enumerated structures should be DAGs");
+        }
+
+        println!("\n✓ All structures are valid DAGs");
+        println!("\n=== Exhaustive Enumeration Test Passed! ===");
+    }
 
     #[test]
     fn test_generate_neighbors() {

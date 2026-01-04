@@ -1,0 +1,17 @@
+Name: hierarchical
+Description: 4-layer hierarchy
+Samples: 2000
+Variables: 10
+Edges: 12
+
+True Structure:
+  0: (no parents)
+  1: (no parents)
+  2: (no parents)
+  3: ← [0, 1]
+  4: ← [1, 2]
+  5: ← [3, 4]
+  6: ← [3, 4]
+  7: ← [5]
+  8: ← [6]
+  9: ← [5, 6]

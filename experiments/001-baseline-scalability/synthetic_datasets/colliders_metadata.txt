@@ -1,0 +1,17 @@
+Name: colliders
+Description: Multiple V-structures
+Samples: 2000
+Variables: 10
+Edges: 6
+
+True Structure:
+  0: (no parents)
+  1: (no parents)
+  2: ← [0, 1]
+  3: (no parents)
+  4: ← [3]
+  5: ← [3]
+  6: (no parents)
+  7: ← [6]
+  8: ← [6]
+  9: (no parents)

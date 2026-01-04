@@ -1,0 +1,12 @@
+# Phase 3 validation: Beam search on Iris with BDeu scoring
+# Compare results to Julia top-10 structures
+
+input = "data/iris_numeric.csv"
+output = "results/iris_beam_search.json"
+
+beam_size = 5    # Small beam for speed
+max_rounds = 5   # Few rounds for validation
+
+[[scoring]]
+method = "EdgeBased"
+lambda = 2.0

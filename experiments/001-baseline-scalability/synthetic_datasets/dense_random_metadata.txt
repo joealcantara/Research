@@ -1,0 +1,17 @@
+Name: dense_random
+Description: Dense random DAG
+Samples: 2000
+Variables: 10
+Edges: 14
+
+True Structure:
+  0: (no parents)
+  1: ← [0]
+  2: ← [0, 1]
+  3: ← [2]
+  4: ← [1, 2]
+  5: ← [0, 3]
+  6: (no parents)
+  7: (no parents)
+  8: ← [2, 3, 5, 7]
+  9: ← [1, 8]

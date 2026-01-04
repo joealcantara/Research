@@ -1,0 +1,17 @@
+Name: diamond
+Description: Diamond: convergent and divergent paths
+Samples: 2000
+Variables: 10
+Edges: 12
+
+True Structure:
+  0: (no parents)
+  1: ← [0]
+  2: ← [0]
+  3: ← [0]
+  4: ← [1, 2]
+  5: ← [2, 3]
+  6: ← [4, 5]
+  7: ← [6]
+  8: ← [6]
+  9: ← [6]

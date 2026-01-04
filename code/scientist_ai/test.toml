@@ -1,0 +1,14 @@
+# Test toml
+
+# Dataset
+input = "data/secom.csv"
+output = "results/test.json"
+
+# Beam Size
+beam_size = 10
+
+# Max Rounds
+max_rounds = 3
+
+# Lambda - Penalty for longer theories
+lambda = 2.0

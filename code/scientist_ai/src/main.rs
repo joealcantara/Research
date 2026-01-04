@@ -1,9 +1,10 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
 use std::env;
 use std::fs;
 
 // Import modules from the library
-use scientist_ai::{dag, inference, search};
+use scientist_ai::{inference, search};
 use scientist_ai::inference::{ScoringConfig, ScoringMethod};
 
 /// Helper enum to deserialize either a single value or array
@@ -39,22 +40,58 @@ struct Experiment {
     scoring: Option<OneOrMany<ScoringConfig>>,
 }
 
-fn main() {
-    println!("Scientist AI");
-    println!("--Check connectivity--");
-    inference::hello();
+/// Output structure for JSON results
+#[derive(Serialize)]
+struct ExperimentResults {
+    config: ConfigInfo,
+    data: DataInfo,
+    methods: Vec<MethodResult>,
+}
 
+#[derive(Serialize)]
+struct ConfigInfo {
+    input: String,
+    beam_size: usize,
+    max_rounds: usize,
+}
+
+#[derive(Serialize)]
+struct DataInfo {
+    rows: usize,
+    columns: usize,
+    variables: Vec<String>,
+}
+
+#[derive(Serialize)]
+struct MethodResult {
+    method: String,
+    best_structure: HashMap<String, Vec<String>>,
+    edges: usize,
+    score: f64,
+}
+
+fn main() {
+    println!("=== Scientist AI: Structure Learning ===\n");
+
+    // Parse command line arguments
     let args: Vec<String> = env::args().collect();
+    if args.len() < 2 {
+        eprintln!("Usage: {} <config.toml>", args[0]);
+        eprintln!("\nExample:");
+        eprintln!("  cargo run experiments/example1_single_method.toml");
+        std::process::exit(1);
+    }
     let config_path = &args[1];
 
+    // Load configuration
     let contents = fs::read_to_string(config_path)
         .expect("Failed to read config file");
 
     let config: Experiment = toml::from_str(&contents)
         .expect("Failed to parse TOML");
 
-    let beam_size = config.beam_size.unwrap_or(10);
-    let max_rounds = config.max_rounds.unwrap_or(3);
+    let beam_size = config.beam_size.unwrap_or(10) as usize;
+    let max_rounds = config.max_rounds.unwrap_or(3) as usize;
 
     // Parse scoring methods (with fallback to legacy lambda)
     let scoring_methods: Vec<ScoringMethod> = if let Some(scoring_configs) = config.scoring {
@@ -68,10 +105,12 @@ fn main() {
         vec![ScoringMethod::EdgeBased(2.0)]
     };
 
-    println!("Input: {}", config.input);
-    println!("Output: {}", config.output);
-    println!("Beam size: {}", beam_size);
-    println!("Max rounds: {}", max_rounds);
+    // Print configuration
+    println!("Configuration:");
+    println!("  Input:      {}", config.input);
+    println!("  Output:     {}", config.output);
+    println!("  Beam size:  {}", beam_size);
+    println!("  Max rounds: {}", max_rounds);
     println!("\nScoring methods ({}):", scoring_methods.len());
     for (i, method) in scoring_methods.iter().enumerate() {
         match method {
@@ -87,14 +126,110 @@ fn main() {
         }
     }
 
-    let mut dag = dag::DAG::new();
+    // Load CSV data
+    println!("\n--- Loading Data ---");
+    use polars::prelude::*;
+    let df = CsvReadOptions::default()
+        .with_has_header(true)
+        .try_into_reader_with_file_path(Some(config.input.clone().into()))
+        .expect("Failed to create CSV reader")
+        .finish()
+        .expect("Failed to read CSV");
 
-    // Valid DAG: v1 → v2 → v3
-    dag.add_edge("v1", "v2");
-    dag.add_edge("v2", "v3");
-    println!("Has cycle? {}", dag.has_cycle());  // Should be false
+    println!("  Rows: {}", df.height());
+    println!("  Columns: {}", df.width());
+    println!("  Variables: {:?}", df.get_column_names());
 
-    // Add cycle: v3 → v1
-    dag.add_edge("v3", "v1");
-    println!("Has cycle? {}", dag.has_cycle());  // Should be true
+    // Extract variable names
+    let variables: Vec<String> = df.get_column_names()
+        .iter()
+        .map(|s| s.to_string())
+        .collect();
+
+    // Prepare results collection
+    let mut method_results = Vec::new();
+
+    // Run structure learning for each scoring method
+    for (i, method) in scoring_methods.iter().enumerate() {
+        println!("\n=== Method {}/{}: {:?} ===", i + 1, scoring_methods.len(), method);
+
+        let method_name = match method {
+            ScoringMethod::EdgeBased(lambda) => format!("Edge-based (λ={})", lambda),
+            ScoringMethod::BIC => "BIC".to_string(),
+            ScoringMethod::BDeu(alpha) => format!("BDeu (α={})", alpha),
+        };
+
+        println!("\nRunning stochastic beam search...");
+
+        let best_structure = search::stochastic_beam_search(
+            &df,
+            &variables,
+            beam_size,
+            max_rounds,
+            method,
+            1.0,  // temperature
+            true  // verbose
+        ).expect("Search failed");
+
+        // Count edges in best structure
+        let edges: usize = best_structure.values().map(|parents| parents.len()).sum();
+
+        println!("\n--- Results for {} ---", method_name);
+        println!("Best structure found ({} edges):", edges);
+
+        // Print structure in readable format
+        let mut sorted_vars: Vec<_> = best_structure.keys().collect();
+        sorted_vars.sort();
+
+        for var in sorted_vars {
+            let parents = &best_structure[var];
+            if parents.is_empty() {
+                println!("  {} (no parents)", var);
+            } else {
+                println!("  {} ← {}", var, parents.join(", "));
+            }
+        }
+
+        // Compute score for best structure
+        let score = inference::score_structure(&df, &best_structure, method)
+            .expect("Failed to score structure");
+        println!("\nFinal score: {:.3}", score);
+
+        // Store results
+        method_results.push(MethodResult {
+            method: method_name,
+            best_structure: best_structure.clone(),
+            edges,
+            score,
+        });
+    }
+
+    // Write JSON output
+    println!("\n=== Writing Results ===");
+
+    let results = ExperimentResults {
+        config: ConfigInfo {
+            input: config.input.clone(),
+            beam_size,
+            max_rounds,
+        },
+        data: DataInfo {
+            rows: df.height(),
+            columns: df.width(),
+            variables: variables.clone(),
+        },
+        methods: method_results,
+    };
+
+    // Create output directory if needed
+    if let Some(parent) = std::path::Path::new(&config.output).parent() {
+        fs::create_dir_all(parent).expect("Failed to create output directory");
+    }
+
+    // Write JSON file
+    let json = serde_json::to_string_pretty(&results).expect("Failed to serialize results");
+    fs::write(&config.output, json).expect("Failed to write output file");
+
+    println!("Results written to: {}", config.output);
+    println!("\n=== Complete ===");
 }

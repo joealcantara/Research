@@ -1,0 +1,9 @@
+# Example 1: Single scoring method (edge-based)
+
+input = "data/train.csv"
+output = "results/run1.json"
+beam_size = 10
+max_rounds = 3
+
+# Single scoring method
+scoring = { method = "edge", lambda = 2.0 }

@@ -1,0 +1,17 @@
+Name: sparse_random
+Description: Sparse random DAG
+Samples: 2000
+Variables: 10
+Edges: 7
+
+True Structure:
+  0: (no parents)
+  1: ← [0]
+  2: ← [1]
+  3: ← [2]
+  4: ← [0]
+  5: (no parents)
+  6: ← [3]
+  7: (no parents)
+  8: ← [5]
+  9: ← [8]

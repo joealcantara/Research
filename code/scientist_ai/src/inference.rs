@@ -98,9 +98,15 @@ pub fn get_variable_type(df: &DataFrame, var: &str) -> Result<VariableType, Pola
         }
     }
 
-    // Categorical: discrete integer values, not too many unique values (max 10)
+    // Categorical: discrete values, not too many unique values (max 10)
+    // Check for both integer and string categorical variables
     if unique_vals.len() <= 10 {
+        // Integer categorical
         if let Ok(_vals) = column.i64() {
+            return Ok(VariableType::Categorical);
+        }
+        // String categorical (e.g., species names)
+        if let Ok(_vals) = column.str() {
             return Ok(VariableType::Categorical);
         }
     }
@@ -497,7 +503,19 @@ pub fn estimate_continuous_parameters(
 
             for (i, parent) in parents.iter().enumerate() {
                 let parent_series = df.column(parent)?;
-                let parent_vals: Vec<f64> = parent_series.f64()?.into_no_null_iter().collect();
+
+                // Handle both f64 (continuous) and i64 (categorical) parents
+                let parent_vals: Vec<f64> = if let Ok(vals) = parent_series.f64() {
+                    // Already f64 (continuous variable)
+                    vals.into_no_null_iter().collect()
+                } else if let Ok(vals) = parent_series.i64() {
+                    // i64 (categorical variable) - cast to f64
+                    vals.into_no_null_iter().map(|v| v as f64).collect()
+                } else {
+                    return Err(PolarsError::ComputeError(
+                        format!("Parent {} has unsupported type for regression", parent).into()
+                    ));
+                };
 
                 for row in 0..n {
                     x_matrix[row][i + 1] = parent_vals[row]; // Column 0 is intercept (1.0)
@@ -901,10 +919,19 @@ pub fn compute_continuous_log_likelihood(
                     let mut prediction = *intercept;
 
                     for (i, parent) in parents.iter().enumerate() {
-                        let parent_col = df.column(parent)?.f64()?;
-                        let parent_val = parent_col
-                            .get(row_idx)
-                            .ok_or_else(|| PolarsError::ComputeError("Parent value missing".into()))?;
+                        let parent_col = df.column(parent)?;
+
+                        // Handle both f64 (continuous) and i64 (categorical) parents
+                        let parent_val = if let Ok(col) = parent_col.f64() {
+                            col.get(row_idx).ok_or_else(|| PolarsError::ComputeError("Parent value missing".into()))?
+                        } else if let Ok(col) = parent_col.i64() {
+                            col.get(row_idx).ok_or_else(|| PolarsError::ComputeError("Parent value missing".into()))? as f64
+                        } else {
+                            return Err(PolarsError::ComputeError(
+                                format!("Parent {} has unsupported type in likelihood", parent).into()
+                            ));
+                        };
+
                         prediction += coeffs[i] * parent_val;
                     }
 
@@ -1286,6 +1313,48 @@ pub enum ScoringMethod {
 /// let method = ScoringMethod::BDeu(1.0);
 /// let final_score = score_structure(&df, &structure, &method)?;
 /// ```
+///
+/// Compute log-likelihood for mixed networks (binary + categorical + continuous)
+pub fn compute_mixed_log_likelihood(
+    df: &DataFrame,
+    structure: &HashMap<String, Vec<String>>,
+) -> Result<f64, PolarsError> {
+    let mut total_log_lik = 0.0;
+
+    for (var, parents) in structure.iter() {
+        let var_type = get_variable_type(df, var)?;
+
+        match var_type {
+            VariableType::Binary => {
+                // Estimate binary parameters and compute likelihood
+                let mut temp_structure = HashMap::new();
+                temp_structure.insert(var.clone(), parents.clone());
+                let params = estimate_binary_parameters(df, &temp_structure)?;
+                let log_lik = compute_binary_log_likelihood(df, &temp_structure, &params)?;
+                total_log_lik += log_lik;
+            }
+            VariableType::Categorical => {
+                // Estimate categorical parameters and compute likelihood
+                let mut temp_structure = HashMap::new();
+                temp_structure.insert(var.clone(), parents.clone());
+                let params = estimate_categorical_parameters(df, &temp_structure)?;
+                let log_lik = compute_categorical_log_likelihood(df, &temp_structure, &params)?;
+                total_log_lik += log_lik;
+            }
+            VariableType::Continuous => {
+                // Estimate continuous parameters and compute likelihood
+                let mut temp_structure = HashMap::new();
+                temp_structure.insert(var.clone(), parents.clone());
+                let params = estimate_continuous_parameters(df, &temp_structure)?;
+                let log_lik = compute_continuous_log_likelihood(df, &temp_structure, &params)?;
+                total_log_lik += log_lik;
+            }
+        }
+    }
+
+    Ok(total_log_lik)
+}
+
 pub fn score_structure(
     df: &DataFrame,
     structure: &HashMap<String, Vec<String>>,
@@ -1293,14 +1362,23 @@ pub fn score_structure(
 ) -> Result<f64, PolarsError> {
     match method {
         ScoringMethod::EdgeBased(lambda) => {
-            let (score, _, _) = score_binary_structure(df, structure, *lambda)?;
+            // Use general mixed network likelihood
+            let log_lik = compute_mixed_log_likelihood(df, structure)?;
+            let edges: usize = structure.values().map(|p| p.len()).sum();
+            let score = log_lik - lambda * (edges as f64);
             Ok(score)
         }
         ScoringMethod::BIC => {
-            let (bic_score, _, _) = score_binary_structure_bic(df, structure)?;
+            // Use general mixed network likelihood
+            let log_lik = compute_mixed_log_likelihood(df, structure)?;
+            let k = count_parameters(structure);
+            let n = df.height() as f64;
+            let penalty = (k as f64 / 2.0) * n.ln();
+            let bic_score = log_lik - penalty;
             Ok(bic_score)
         }
         ScoringMethod::BDeu(alpha) => {
+            // BDeu only works for discrete variables
             score_binary_structure_bdeu(df, structure, *alpha)
         }
     }
@@ -1437,10 +1515,6 @@ pub fn compute_posteriors(
     }
 
     Ok(results)
-}
-
-pub fn hello() {
-    println!("Hello from the inference module!");
 }
 
 #[cfg(test)]

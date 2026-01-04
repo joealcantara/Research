@@ -1,0 +1,12 @@
+# Phase 3 validation alternative: Beam search on 3-variable chain
+# Simpler dataset to validate beam search algorithm works
+
+input = "data/chain_3var.csv"
+output = "results/chain_beam_search.json"
+
+beam_size = 5
+max_rounds = 10
+
+[[scoring]]
+method = "BDeu"
+alpha = 1.0

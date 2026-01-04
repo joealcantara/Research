@@ -1,0 +1,9 @@
+# Test: 3-variable chain structure (X1 → X2 → X3)
+
+input = "data/chain_test.csv"
+output = "results/chain_test.json"
+beam_size = 5
+max_rounds = 2
+
+# Use BDeu for theoretically correct scoring
+scoring = { method = "bdeu", alpha = 1.0 }

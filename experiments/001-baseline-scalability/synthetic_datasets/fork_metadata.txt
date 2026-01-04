@@ -1,0 +1,17 @@
+Name: fork
+Description: Common cause with convergence
+Samples: 2000
+Variables: 10
+Edges: 11
+
+True Structure:
+  0: (no parents)
+  1: ← [0]
+  2: ← [0]
+  3: ← [0]
+  4: ← [1, 2]
+  5: ← [2, 3]
+  6: ← [4]
+  7: ← [4]
+  8: ← [5]
+  9: ← [5]

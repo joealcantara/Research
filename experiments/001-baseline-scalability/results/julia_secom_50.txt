@@ -1,0 +1,51 @@
+SECOM 50-Variable Benchmark (Julia)
+============================================================
+
+Variables: 51
+Samples: 1567
+Best score: -40745.0
+Elapsed time: 16.24 seconds
+
+Best structure:
+  Column42 ← [:Column30, :Column5, :Column47, :Column9]
+  Column33 ← [:Column44, :Column30]
+  Column1 ← [:Column2, :Column3, :Column4]
+  Column41 ← [:Column23, :Column24, :Column9, :Column18, :Column12, :Column8]
+  Column16 ← [:Column6, :Column17, :Column15, :Column5, :Column7, :Column31]
+  Column19 ← [:Column27, :Column3, :Column24, :label, :Column26]
+  Column3 ← [:Column26, :Column19, :Column1, :Column30, :Column27]
+  Column44 ← [:Column46, :Column10, :Column45, :Column9, :Column3, :Column15]
+  Column30 ← [:Column13, :Column5, :Column7, :Column42, :label, :Column4]
+  Column2 ← [:Column25, :Column1, :Column20, :Column26, :Column30, :Column4]
+  Column47 ← [:Column7, :Column14, :Column8, :Column42, :Column5]
+  Column6 ← [:Column16, :Column7, :Column5, :Column15, :Column17, :Column31]
+  Column37 ← [:Column11, :Column18, :Column4]
+  Column7 ← [:Column5, :Column16, :Column6, :Column32, :Column17, :Column47]
+  Column25 ← [:Column2, :Column30]
+  Column20 ← [:Column27, :Column2, :Column33]
+  Column15 ← [:Column16, :Column31, :Column6, :Column5, :Column17, :Column14]
+  Column32 ← [:Column7, :Column48, :Column5, :Column8, :Column16, :Column15]
+  Column13 ← [:Column12, :Column4, :Column30, :Column49, :Column26, :Column47]
+  Column48 ← [:Column32, :Column14, :Column12, :label, :Column16]
+  Column14 ← [:Column31, :Column15, :Column7, :Column8, :Column16, :Column45]
+  Column4 ← [:Column13, :Column27, :Column45, :Column50, :Column5, :Column30]
+  Column18 ← [:Column11, :Column37, :label, :Column31, :Column15, :Column8]
+  Column49 ← [:Column13, :Column7]
+  Column43 ← [:Column46, :Column7]
+  Column27 ← [:Column26, :Column4, :Column20, :Column19, :Column8, :Column3]
+  Column26 ← [:Column27, :Column3, :Column5, :Column13, :Column2, :Column18]
+  Column23 ← [:Column24, :Column41, :Column9, :label]
+  Column36 ← [:Column29, :Column17, :Column47]
+  Column8 ← [:Column14, :Column32, :Column15, :Column27, :Column50, :Column41]
+  Column11 ← [:Column37, :Column18, :Column4]
+  label ← [:Column11, :Column9, :Column42, :Column2, :Column45, :Column3]
+  Column5 ← [:Column7, :Column6, :Column16, :Column15, :Column17, :Column30]
+  Column50 ← [:Column4, :Column8, :Column9, :Column29]
+  Column24 ← [:Column23, :Column41, :label, :Column19, :Column9]
+  Column9 ← [:Column41, :Column12, :Column14, :Column50, :Column44, :Column23]
+  Column46 ← [:Column44, :Column10, :Column3, :Column15, :Column43]
+  Column45 ← [:Column44, :Column4, :Column30, :Column14]
+  Column29 ← [:Column36, :Column17, :Column47]
+  Column10 ← [:Column46, :Column44, :Column16, :Column18]
+  Column31 ← [:Column14, :Column15, :Column6, :Column16, :Column18, :Column4]
+  Column12 ← [:Column13, :Column18, :Column9, :Column47, :Column30, :Column48]

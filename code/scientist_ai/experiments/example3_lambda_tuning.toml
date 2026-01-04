@@ -1,0 +1,14 @@
+# Example 3: Lambda tuning experiment
+
+input = "data/train.csv"
+output = "results/lambda_tuning.json"
+beam_size = 20
+max_rounds = 3
+
+# Try different lambda values to find best
+scoring = [
+    { method = "edge", lambda = 0.5 },
+    { method = "edge", lambda = 1.0 },
+    { method = "edge", lambda = 2.0 },
+    { method = "edge", lambda = 5.0 }
+]
