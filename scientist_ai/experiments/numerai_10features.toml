@@ -1,0 +1,31 @@
+# Numerai Single Era Experiment - 10 Features
+# Dataset: v5.2 train data, era 0242 (~6K observations)
+# Features: 10 features + target (subset of "small" feature set)
+# Method: Option A (single era, true cross-sectional)
+
+input = "/Users/joe/Documents/research/datasets/numerai/r1174__v5_2_train.parquet"
+output = "experiments/results/numerai_10features.json"
+beam_size = 10
+max_rounds = 3
+
+# Filter to single era (0242 has 6,009 observations)
+era = "0242"
+
+# Select 10 features + target (much smaller search space)
+columns = [
+    "target",
+    "feature_antistrophic_striate_conscriptionist",
+    "feature_bicameral_showery_wallaba",
+    "feature_bridal_fingered_pensioner",
+    "feature_collectivist_flaxen_gueux",
+    "feature_concurring_fabled_adapter",
+    "feature_crosscut_whilom_ataxy",
+    "feature_departmental_inimitable_sentencer",
+    "feature_dialectal_homely_cambodia",
+    "feature_donnard_groutier_twinkle",
+    "feature_elusive_vapoury_accomplice",
+]
+
+# Use BIC scoring (standard for real-world data)
+[[scoring]]
+method = "BIC"

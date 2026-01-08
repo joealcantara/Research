@@ -1,0 +1,11 @@
+# Experiment 1: Ground Truth Validation
+# 4-var Iris subset, BIC scoring
+# Compare beam search to exhaustive optimal
+
+input = "data/iris_4var.csv"
+output = "results/exp1_beam_run.json"
+beam_size = 10
+max_rounds = 20
+
+[[scoring]]
+method = "BIC"

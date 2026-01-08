@@ -1,0 +1,8 @@
+# Test alternative SECOM 6-var subset
+input = "data/secom_6var_alt.csv"
+output = "results/test_alt_run.json"
+beam_size = 10
+max_rounds = 20
+
+[[scoring]]
+method = "BIC"

@@ -1,0 +1,8 @@
+# Test full 5-variable Iris
+input = "data/iris_numeric.csv"
+output = "results/test_iris5_run.json"
+beam_size = 10
+max_rounds = 20
+
+[[scoring]]
+method = "BIC"

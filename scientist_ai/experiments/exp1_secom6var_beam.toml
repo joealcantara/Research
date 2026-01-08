@@ -1,0 +1,11 @@
+# Experiment 1c: 6-variable validation (no exhaustive ground truth)
+# 6-var SECOM subset, BIC scoring
+# Search space: 3,781,503 DAGs
+
+input = "data/secom_6var.csv"
+output = "results/exp1_secom6_run.json"
+beam_size = 10
+max_rounds = 20
+
+[[scoring]]
+method = "BIC"

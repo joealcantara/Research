@@ -1,0 +1,11 @@
+# Experiment 1: Ground Truth Validation - SECOM dataset
+# 4-var SECOM subset, BIC scoring
+# Compare beam search to exhaustive optimal
+
+input = "data/secom_4var.csv"
+output = "results/exp1_secom_run.json"
+beam_size = 10
+max_rounds = 20
+
+[[scoring]]
+method = "BIC"

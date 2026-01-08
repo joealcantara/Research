@@ -1,0 +1,63 @@
+# Numerai Single Era Experiment (True Cross-Sectional)
+# Dataset: v5.2 train data, era 0242 (~6K observations)
+# Features: 42 "small" curated features + target
+# Method: Option A (single era, true cross-sectional)
+
+input = "/Users/joe/Documents/research/datasets/numerai/r1174__v5_2_train.parquet"
+output = "experiments/results/numerai_single_era.json"
+beam_size = 10
+max_rounds = 3
+
+# Filter to single era (0242 has 6,009 observations)
+era = "0242"
+
+# Select small feature set + target column (exclude era since it's constant after filtering)
+columns = [
+    "target",
+    "feature_antistrophic_striate_conscriptionist",
+    "feature_bicameral_showery_wallaba",
+    "feature_bridal_fingered_pensioner",
+    "feature_collectivist_flaxen_gueux",
+    "feature_concurring_fabled_adapter",
+    "feature_crosscut_whilom_ataxy",
+    "feature_departmental_inimitable_sentencer",
+    "feature_dialectal_homely_cambodia",
+    "feature_donnard_groutier_twinkle",
+    "feature_elusive_vapoury_accomplice",
+    "feature_geminate_crummiest_scourer",
+    "feature_glandered_unimproved_peafowl",
+    "feature_hempen_unionist_cone",
+    "feature_illuminated_gambrel_noria",
+    "feature_jacobinical_symmetric_roll",
+    "feature_jewish_stained_disembowelment",
+    "feature_lacklustre_centroidal_schweitzer",
+    "feature_limiest_heliolithic_york",
+    "feature_maledictive_latter_psellism",
+    "feature_mendelian_undiscording_avion",
+    "feature_musicianly_aspirate_creativity",
+    "feature_petty_upraised_caddice",
+    "feature_pottier_unmanly_collyrium",
+    "feature_reclaimed_insurrectional_moneyer",
+    "feature_saddening_unsound_rustling",
+    "feature_simulated_nonclassified_intercessor",
+    "feature_snakiest_somalian_wavelet",
+    "feature_splanchnic_notional_pint",
+    "feature_strained_equivocal_phoneme",
+    "feature_stretchy_spiniest_fizgig",
+    "feature_toltec_korean_disfavourer",
+    "feature_transisthmian_yogic_linden",
+    "feature_tridactyl_immoral_snorting",
+    "feature_trimeter_soggy_greatest",
+    "feature_unanalyzable_excusable_whirlwind",
+    "feature_unbreakable_constraining_hegelianism",
+    "feature_unformed_bent_smatch",
+    "feature_unministerial_unextenuated_teleostean",
+    "feature_unmodish_zymogenic_rousing",
+    "feature_unsystematized_subcardinal_malaysia",
+    "feature_willful_sere_chronobiology",
+    "feature_zoological_peristomial_scute",
+]
+
+# Use BIC scoring (standard for real-world data)
+[[scoring]]
+method = "BIC"
