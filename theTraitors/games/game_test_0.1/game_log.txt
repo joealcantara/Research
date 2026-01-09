@@ -1,0 +1,511 @@
+================================================================================
+THE TRAITORS - GAME LOG
+================================================================================
+
+SETUP
+--------------------------------------------------------------------------------
+Traitors: Player5, Player9, Player11
+Innocents: Player1, Player2, Player3, Player4, Player6, Player7, Player8, Player10, Player12
+
+
+================================================================================
+ROUND 1
+================================================================================
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player1: "I'm just here to enjoy the game, not to make any big statements. I think we should focus on having fun and trying to figure out who's the traitor."
+
+(I'm taking a neutral approach to avoid raising...
+
+Player2: "I've noticed that Player3 and Player4 have been acting strangely, sometimes whispering to each other when no one is around. I'm starting to wonder if they might be working together."
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player3: "I think it's time for us to take another look at that rumor about the new employee, I don't know what to make of it but some people seem really spooked."
+
+Player4: "I think we should discuss the recent changes in our game plan and how we can work together to achieve our goals. I believe it's essential that we all have a voice and contribute to the discussion ...
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player5: "I think it would be great if we could discuss our strategies for the game, as I have some concerns about the current state of alliances and trust within the group. Perhaps we could pool our knowle...
+
+Player6: "I think we should focus on the obvious lies and exaggerations, rather than jumping to conclusions about who might be telling them. Let's analyze the statements one by one without making any accusa...
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player7: "I think we should focus on getting to know each other and building our alliances before making any accusations. I'd like to start by proposing that we have a blindfolded dinner, where everyone can...
+
+Player8: "Last night's dinner party was quite the entertaining evening, I must say. I'm still trying to figure out who might have been feeling left out when I wasn't able to join in on the conversation."
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player9: "Good evening, everyone. I'd like to thank our host for the delicious dinner we just enjoyed. It's great to be here tonight and have some quality time with all of you."
+
+(Pause for dramatic effect)...
+
+Player10: "I've been noticing some inconsistencies in the rumors I've heard. Some of us are saying we're getting food earlier than others, but when asked about it directly, everyone says they don't know anyt...
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player11: "I think we should focus on discussing our game plans for the day and make sure everyone is on the same page before making any decisions."
+
+Player12: "I think we should all take a moment to reflect on our actions last week and try to make sure we're representing the team's goals correctly. I'm confident that together, we can achieve great things."
+
+TRAITOR DISCUSSION (Private)
+--------------------------------------------------------------------------------
+Player5: I'll play it cool, trying not to raise any suspicions. "Oh, Player10, I think there must be some miscommunication going around, but everyone's been eating the same time slots as usual, right?"
+
+Player9: "Good evening, everyone. I'd like to start by saying thank you for being here tonight and enjoying the company of our host. Unfortunately, some of us have been having some... issues with their role...
+
+TRAITOR DISCUSSION (Private)
+--------------------------------------------------------------------------------
+Player11: "I've been observing our discussion patterns lately, and I think it's time for us to reassess how we communicate effectively within the group."
+
+MURDER VOTE (Private)
+--------------------------------------------------------------------------------
+Player5 votes to MURDER Player1
+  Reason: Their inconsistencies suggest they're not as trustworthy as they seem.
+
+Player9 votes to MURDER Player2
+  Reason: Player2's inconsistencies with their previous statements about the dinner party and their evasive answers when questioned directly make them seem s...
+
+MURDER VOTE (Private)
+--------------------------------------------------------------------------------
+Player11 votes to MURDER Player1
+  Reason: Their inconsistent behavior and attempt to shift blame suggests they might be playing both sides, increasing the chances of being eliminated.
+
+MURDER RESULT
+--------------------------------------------------------------------------------
+>>> Player1 was MURDERED <<<
+>>> They were a INNOCENT <<<
+Vote counts: {'Player1': 2, 'Player2': 1}
+
+
+================================================================================
+ROUND 2
+================================================================================
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player2: "I think it's time to get real about the dinner party tonight and figure out who might have been hiding in plain sight. Let's not let the small talk fool us, we need to focus on what really matters."
+
+Player3: "I think it's time for everyone to take a step back and reflect on the true nature of this game. Let's focus on discussing our team's goals and strategies, rather than spreading rumors or making ac...
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player4: "I think it's time to focus on our game plans and make sure everyone is aligned before making any decisions. Let's take a break from discussing food and rumors and come back to this topic later, sh...
+
+Player5: "I think it's safe to say that our host has some... concerns about us all. I'm sure everyone will be happy to help with the cleanup and make this evening as enjoyable as possible."
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player6: "I've noticed some inconsistencies in the rumors I've heard lately, and I think it's time for us to focus on discussing our game plans rather than gossiping. Let's keep the conversation positive an...
+
+Player7: "I think it's time to take a closer look at the dynamics of our team and figure out who might be playing us. I'm wondering if we can pool our resources and work together to get some answers, rather...
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player8: "I think it's time to focus on the task at hand - enjoying dinner and discussing our plans for the day. Let's keep the conversation light and let the host handle any questions about food."
+
+Player9: "Excuse me everyone, I think we should focus on our game plans for the day. Let's not get too caught up in speculation about last night's dinner party."
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player10: "I think we need to focus on the rumors and inconsistencies in our story before getting too caught up in small talk. Let's not forget, we all know who's been feeling left out at dinner parties late...
+
+Player11: "I'm not sure what all the fuss is about, but it seems like everyone's really getting to know each other. I think we should have a group discussion to clear up any misunderstandings and get everyon...
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player12: "I think it's time to focus on our game plans and make sure everyone is committed to playing by the rules. Let's take a few minutes to discuss and agree on what we want to achieve tonight."
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player2 votes to BANISH Player4
+  Reason: I suspect Player4's recent attempts to change the subject during dinner party discussions, combined with their overall demeanor, suggest they might...
+
+Player3 votes to BANISH Player4
+  Reason: Their evasive behavior and lack of information about the dinner party, combined with the suspicious behaviors of some other players, raised red fla...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player4 votes to BANISH Player3
+  Reason: Based on their consistent behavior and lack of emotional responses to the recent discussion, I believe they are the most trustworthy player among m...
+
+Player5 votes to BANISH Player2
+  Reason: They seemed genuinely interested in discussing the game plans and didn't appear to be hiding anything, which makes them a trustworthy player.
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player6 votes to BANISH Player2
+  Reason: I suspect Player2's evasive behavior and lack of direct participation in discussions suggest they might be hiding something, which is a traitorous ...
+
+Player7 votes to BANISH Player3
+  Reason: Their aggressive behavior and hesitation to contribute to the conversation suggest they might be hiding something, which aligns with some of my sus...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player8 votes to BANISH Player2
+  Reason: Given the group's discussion about food and speculating about last night's dinner party, I believe that Player2 might be trying to deflect attentio...
+
+Player9 votes to BANISH Player8
+  Reason: Their brief comment about "not knowing anyone about food" was suspicious and seemed out of place, making me wonder if they're hiding something.
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player10 votes to BANISH Player3
+  Reason: I eliminated Player3 because their evasive behavior about dinner party dynamics, combined with the suspicious conversation they had with Player9 ea...
+
+Player11 votes to BANISH Player3
+  Reason: I believe Player3's consistent evasiveness and seeming nervousness when discussing the dinner party may indicate that they are hiding something. Th...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player12 votes to BANISH Player2
+  Reason: I believe Player2's attempts to deflect attention with lengthy statements and their overall behavior suggest they might be hiding something, which ...
+
+BANISHMENT RESULT
+--------------------------------------------------------------------------------
+>>> Player3 was BANISHED <<<
+>>> They were a INNOCENT <<<
+Vote counts: {'Player4': 2, 'Player3': 4, 'Player2': 4, 'Player8': 1}
+
+TRAITOR DISCUSSION (Private)
+--------------------------------------------------------------------------------
+Player5: "I'm glad to see we're all having a great time discussing the game plans and getting to know each other better. However, I think it's high time we refocused on our true objectives: winning this game!"
+
+Player9: "Everyone's been so excited about tonight's dinner plans. I'm looking forward to catching up and discussing some new ideas. Let's just focus on enjoying each other's company, shall we?"
+
+TRAITOR DISCUSSION (Private)
+--------------------------------------------------------------------------------
+Player11: "I think we're all forgetting what really matters here - our game plan. Let's focus on playing to the best of our abilities, not getting caught up in unnecessary drama."
+
+MURDER VOTE (Private)
+--------------------------------------------------------------------------------
+Player5 votes to MURDER Player2
+  Reason: I eliminated Player2 due to their suspicious behavior and evasive comments about dinner party dynamics. Their attempts to deflect attention with le...
+
+Player9 votes to MURDER Player8
+  Reason: Their comments about not knowing anyone about food seemed suspicious to me, and their brief interaction with Player9 also raised red flags.
+
+MURDER VOTE (Private)
+--------------------------------------------------------------------------------
+Player11 votes to MURDER Player4
+  Reason: I believe Player4 is an innocent trying to hide behind their alibis and suspicious behavior. Their recent evasive answers and seeming nervousness w...
+
+MURDER RESULT
+--------------------------------------------------------------------------------
+>>> Player2 was MURDERED <<<
+>>> They were a INNOCENT <<<
+Vote counts: {'Player2': 1, 'Player8': 1, 'Player4': 1}
+
+
+================================================================================
+ROUND 3
+================================================================================
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player4: "I'd like to discuss our recent conversation about Player10's evasive behavior and whether we should be concerned. I think it would be beneficial if we could have an open discussion with each other...
+
+Player5: "I'd like to take the opportunity to clear up any misconceptions about our game plan. We're all in this together, and I believe it's essential we work as a cohesive unit to achieve our goal of winn...
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player6: "I think we should continue gathering information and forming alliances to increase our chances of identifying the traitors. Who's with me on that?"
+
+Player7: "I'm starting to think that the dinner party was more than just a social gathering. I've noticed some inconsistencies in everyone's stories, and now with Player2's murder, it seems like we might ha...
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player8: "I've been thinking, and I'm starting to suspect that we're not as safe as we thought. I need some reassurance from my fellow players before making any drastic decisions."
+
+Player9: "I don't know what to make of the recent voting, but I think we should focus on keeping our team intact for now. It's possible that there are some players hiding something, and let's not jump to co...
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player10: "I'm not surprised by the elimination of Player3, as their evasiveness and nervousness are concerning. I think we've been playing too closely to the suspected traitors' game, but it's still worth i...
+
+Player11: "I think we should focus on verifying the information and not jumping to conclusions just yet. Let's stick to what we know and see if anything else comes up during our conversation."
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player12: "I'm starting to believe that the dinner party discussion might have been more than just a normal conversation about food distribution. I think it's time for some clarification - who said what and ...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player4 votes to BANISH Player5
+  Reason: Their evasive behavior and nervous tone when questioned about the discussion on food distribution suggest they might be hiding something, which ali...
+
+Player5 votes to BANISH Player4
+  Reason: I think Player4 might be hiding something due to their nervous behavior during the discussion about dinner, and their comments seem more scripted t...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player6 votes to BANISH Player4
+  Reason: I believe Player4 is one of the original innocents and should be protected from accusations. Their evasive answers and lack of direct involvement i...
+
+Player7 votes to BANISH Player10
+  Reason: Player10's evasive behavior and mention of getting food earlier than others, combined with their suspicious actions since the dinner party discussi...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player8 votes to BANISH Player5
+  Reason: Given their conflicting behavior earlier in the game and being suspected by multiple players, I believe they are likely a traitor.
+
+Player9 votes to BANISH Player6
+  Reason: Their behavior seemed suspicious earlier and their silence on the dinner party discussion, which might suggest they're hiding something.
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player10 votes to BANISH Player8
+  Reason: Their evasive behavior and attempts to deflect attention suggest they may be hiding something, making me trust them less.
+
+Player11 votes to BANISH Player8
+  Reason: Given the conversation that started with the dinner party discussion, and considering the confidence and concern shown by other players, I believe ...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player12 votes to BANISH Player4
+  Reason: I believe Player4 might be hiding something due to their evasive answers during the dinner party discussion and inconsistencies in their behavior t...
+
+BANISHMENT RESULT
+--------------------------------------------------------------------------------
+>>> Player4 was BANISHED <<<
+>>> They were a INNOCENT <<<
+Vote counts: {'Player5': 2, 'Player4': 3, 'Player10': 1, 'Player6': 1, 'Player8': 2}
+
+TRAITOR DISCUSSION (Private)
+--------------------------------------------------------------------------------
+Player5: "I think it's time to revisit our game plan and reassess our roles. With the new information about Player4 being an INNOCENT, I believe we should focus on eliminating players who might be hiding so...
+
+Player9: "Hello everyone, I think we've got some interesting dynamics going on here. As I was reading through the notes from my fellow traitor, I see that they seem to be trying to make their suspicions abo...
+
+TRAITOR DISCUSSION (Private)
+--------------------------------------------------------------------------------
+Player11: I'll continue to play the role of Player11, maintaining my innocence and subtly hinting at potential betrayal from Player9. I might say something like, "Hey, can we focus on our game plans for toni...
+
+MURDER VOTE (Private)
+--------------------------------------------------------------------------------
+Player5 votes to MURDER Player10
+  Reason: Given the evasive behavior and attempts to deflect attention from themselves, I believe they might be hiding something.
+
+Player9 votes to MURDER Player6
+  Reason: Their suspicious behavior and seeming lack of information about their own actions raise red flags, making me suspect they might be a traitor.
+
+MURDER VOTE (Private)
+--------------------------------------------------------------------------------
+Player11 votes to MURDER Player12
+  Reason: Random selection due to invalid response
+
+MURDER RESULT
+--------------------------------------------------------------------------------
+>>> Player10 was MURDERED <<<
+>>> They were a INNOCENT <<<
+Vote counts: {'Player10': 1, 'Player6': 1, 'Player12': 1}
+
+
+================================================================================
+ROUND 4
+================================================================================
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player5: "Hey everyone, I think it's time for us to discuss the game plans. I'm not sure who's trying to distract me from the real issue, but I'd love to hear your thoughts on what we're all working towards."
+
+Player6: "I believe we've been discussing the dinner party, and I think it's time to put our minds together to figure out who might be hiding something. I want to ask some more questions before making any a...
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player7: "I think we need to be extra cautious tonight. With new information that Player10 was murdered during the night, I'm going to focus on eliminating players 8 and 11 from now on."
+
+Player8: I think it's time to be cautious. Given the new information, including Player4's innocence and Player10's suspicious behavior, I believe there might be more traitors in the group than initially tho...
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player9: "I believe it's time to get to the bottom of this conversation. As someone who has been trying to maintain a neutral image, I think we all deserve a chance to prove ourselves before making any accu...
+
+Player11: "I think we should focus on the rumors and inconsistencies in our story before getting too caught up in small talk, don't you all agree?" I ask the group with a subtle hint at my possible betrayal.
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player12: "Excuse me, I think we can all agree that Player8 was just trying to take the pressure off and have a bit of fun. Let's not jump to conclusions based on limited information, but I do want to expres...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player5 votes to BANISH Player7
+  Reason: I believe that the recent discussion about being extra cautious tonight and focusing on eliminating players 8 and 11, while suggesting that we need...
+
+Player6 votes to BANISH Player9
+  Reason: I have reason to believe that Player9 is involved with the traitors and their suspicious behavior, including evasive answers about food distributio...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player7 votes to BANISH Player8
+  Reason: The new information that Player4 is innocent and the inconsistencies in Player10's earlier statement, combined with Player8's evasive behavior abou...
+
+Player8 votes to BANISH Player9
+  Reason: I believe that Player9's consistent attempts to maintain a neutral image and provide information about the group's dynamics, combined with their re...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player9 votes to BANISH Player5
+  Reason: I believe that my actions and behavior, combined with the suspicious nature of players 8 and 11's responses, make them more likely to be traitors. ...
+
+Player11 votes to BANISH Player6
+  Reason: I believe Player6's inconsistencies in their story and suspicious behavior, such as asking to speak with me privately earlier tonight, make them a ...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player12 votes to BANISH Player5
+  Reason: I believe Player5 was trying to eliminate both Player7 and Player8 by spreading false information about their actions, making it seem like they wer...
+
+BANISHMENT RESULT
+--------------------------------------------------------------------------------
+>>> Player5 was BANISHED <<<
+>>> They were a TRAITOR <<<
+Vote counts: {'Player7': 1, 'Player9': 2, 'Player8': 1, 'Player5': 2, 'Player6': 1}
+
+TRAITOR DISCUSSION (Private)
+--------------------------------------------------------------------------------
+Player9: "I think we should focus on evaluating the new information more objectively, rather than jumping to conclusions. Let's take a step back and reassess our understanding of the situation."
+
+Player11: "Good evening, everyone. I think we've all had enough of the rumors and speculation for tonight. Let's focus on enjoying each other's company and having a great time." (subtly hinting at Player9's ...
+
+MURDER VOTE (Private)
+--------------------------------------------------------------------------------
+Player9 votes to MURDER Player7
+  Reason: The suspicious behavior of Player7 and their evasive answers to questions suggest that they might be more than just an innocent bystander.
+
+Player11 votes to MURDER Player6
+  Reason: I think Player6's inconsistencies in their story and suspicious behavior, such as asking to speak with me privately earlier tonight, make them a li...
+
+MURDER RESULT
+--------------------------------------------------------------------------------
+>>> Player6 was MURDERED <<<
+>>> They were a INNOCENT <<<
+Vote counts: {'Player7': 1, 'Player6': 1}
+
+
+================================================================================
+ROUND 5
+================================================================================
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player7: "I think we need to re-evaluate our dynamics and focus on building trust before getting too caught up in petty squabbles. I'd like to propose that we all take a step back, reflect on our actions, a...
+
+Player8: "Players, I think it's time to have an open discussion about my behavior and actions so far. I want to clarify some things and make sure everyone is on the same page."
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player9: "Hey everyone, I think we've reached a critical point in our discussion. As a neutral player, I believe it's essential to consider all the information before making a decision. I'm voting for Playe...
+
+Player11: "Hey everyone, I think we should focus on the rumors and inconsistencies in our story before getting too caught up in small talk. As someone who's had some... disagreements with others in this grou...
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player12: "I think it's time we take a step back and re-evaluate our dynamics, don't you all agree? I've noticed some... inconsistencies in the group's story that have me questioning who might be hiding some...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player7 votes to BANISH Player8
+  Reason: Their evasiveness about the dinner party and inconsistencies in their earlier statement raise significant red flags, making them a prime suspect.
+
+Player8 votes to BANISH Player9
+  Reason: Due to the lack of concrete evidence and inconsistencies in his statements, I have reason to believe that Player9 may be a traitor.
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player9 votes to BANISH Player7
+  Reason: Based on the recent discussion and Player7's attempts to re-evaluate their dynamics, I believe that some inconsistencies in their story have led me...
+
+Player11 votes to BANISH Player9
+  Reason: While I still have some doubts about Player9's intentions, their recent behavior has seemed overly cautious and suspicious. It's possible that they...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player12 votes to BANISH Player8
+  Reason: I believe Player8's initial behavior was suspicious, as they seemed overly defensive and evasive when discussing their actions.
+
+BANISHMENT RESULT
+--------------------------------------------------------------------------------
+>>> Player9 was BANISHED <<<
+>>> They were a TRAITOR <<<
+Vote counts: {'Player8': 2, 'Player9': 2, 'Player7': 1}
+
+TRAITOR DISCUSSION (Private)
+--------------------------------------------------------------------------------
+Player11: "Hey everyone, I think we've had a good discussion about the recent events and how they might be relevant to our game plan. Let's take some time to reflect on what we've discussed and see where it ...
+
+MURDER VOTE (Private)
+--------------------------------------------------------------------------------
+Player11 votes to MURDER Player12
+  Reason: I believe Player12's inconsistent behavior and overly defensive attitude towards the dinner party dynamics raise significant suspicions. Their voti...
+
+MURDER RESULT
+--------------------------------------------------------------------------------
+>>> Player12 was MURDERED <<<
+>>> They were a INNOCENT <<<
+Vote counts: {'Player12': 1}
+
+
+================================================================================
+ROUND 6
+================================================================================
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player7: "I believe it's time for everyone to focus on building trust and verifying each other's statements before making any moves. We need to be cautious and considerate of one another's words, as the sta...
+
+Player8: "I think it's time for us to take a step back and re-evaluate our dynamics as a group. With the new information about Player4 being an innocent, I believe it's essential that we all trust each othe...
+
+DAY DISCUSSION
+--------------------------------------------------------------------------------
+Player11: "I think it's time we re-evaluate our dynamics and focus on building trust before getting too caught up in petty squabbles. As someone who's had some... disagreements with others in this group, I b...
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player7 votes to BANISH Player8
+  Reason: While I still have concerns about Player8's evasiveness and inconsistencies, their recent behavior does seem suspicious. However, given the new inf...
+
+Player8 votes to BANISH Player7
+  Reason: Random selection due to invalid response
+
+BANISHMENT VOTE
+--------------------------------------------------------------------------------
+Player11 votes to BANISH Player7
+  Reason: While I think Player9 is still a possible traitor, Player8's initial behavior was suspicious and evasive when discussing their actions, which led m...
+
+BANISHMENT RESULT
+--------------------------------------------------------------------------------
+>>> Player7 was BANISHED <<<
+>>> They were a INNOCENT <<<
+Vote counts: {'Player8': 1, 'Player7': 2}
+
+
+================================================================================
+GAME OVER
+================================================================================
+Winner: TRAITORS
+
+
+================================================================================
+FINAL SUMMARY
+================================================================================
+Winner: TRAITORS
+Rounds: 6
+Survivors: Player8, Player11
+
+Eliminated players:
+  - Player1 (innocent)
+  - Player2 (innocent)
+  - Player3 (innocent)
+  - Player4 (innocent)
+  - Player5 (traitor)
+  - Player6 (innocent)
+  - Player7 (innocent)
+  - Player9 (traitor)
+  - Player10 (innocent)
+  - Player12 (innocent)

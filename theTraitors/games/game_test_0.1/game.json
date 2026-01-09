@@ -1,0 +1,866 @@
+{
+  "players": [
+    {
+      "name": "Player1",
+      "role": "innocent",
+      "survived": false
+    },
+    {
+      "name": "Player2",
+      "role": "innocent",
+      "survived": false
+    },
+    {
+      "name": "Player3",
+      "role": "innocent",
+      "survived": false
+    },
+    {
+      "name": "Player4",
+      "role": "innocent",
+      "survived": false
+    },
+    {
+      "name": "Player5",
+      "role": "traitor",
+      "survived": false
+    },
+    {
+      "name": "Player6",
+      "role": "innocent",
+      "survived": false
+    },
+    {
+      "name": "Player7",
+      "role": "innocent",
+      "survived": false
+    },
+    {
+      "name": "Player8",
+      "role": "innocent",
+      "survived": true
+    },
+    {
+      "name": "Player9",
+      "role": "traitor",
+      "survived": false
+    },
+    {
+      "name": "Player10",
+      "role": "innocent",
+      "survived": false
+    },
+    {
+      "name": "Player11",
+      "role": "traitor",
+      "survived": true
+    },
+    {
+      "name": "Player12",
+      "role": "innocent",
+      "survived": false
+    }
+  ],
+  "winner": "traitor",
+  "rounds": 6,
+  "history": [
+    {
+      "round": 1,
+      "phase": "day_discussion",
+      "player": "Player1",
+      "statement": "\"I'm just here to enjoy the game, not to make any big statements. I think we should focus on having fun and trying to figure out who's the traitor.\"\n\n(I'm taking a neutral approach to avoid raising..."
+    },
+    {
+      "round": 1,
+      "phase": "day_discussion",
+      "player": "Player2",
+      "statement": "\"I've noticed that Player3 and Player4 have been acting strangely, sometimes whispering to each other when no one is around. I'm starting to wonder if they might be working together.\""
+    },
+    {
+      "round": 1,
+      "phase": "day_discussion",
+      "player": "Player3",
+      "statement": "\"I think it's time for us to take another look at that rumor about the new employee, I don't know what to make of it but some people seem really spooked.\""
+    },
+    {
+      "round": 1,
+      "phase": "day_discussion",
+      "player": "Player4",
+      "statement": "\"I think we should discuss the recent changes in our game plan and how we can work together to achieve our goals. I believe it's essential that we all have a voice and contribute to the discussion ..."
+    },
+    {
+      "round": 1,
+      "phase": "day_discussion",
+      "player": "Player5",
+      "statement": "\"I think it would be great if we could discuss our strategies for the game, as I have some concerns about the current state of alliances and trust within the group. Perhaps we could pool our knowle..."
+    },
+    {
+      "round": 1,
+      "phase": "day_discussion",
+      "player": "Player6",
+      "statement": "\"I think we should focus on the obvious lies and exaggerations, rather than jumping to conclusions about who might be telling them. Let's analyze the statements one by one without making any accusa..."
+    },
+    {
+      "round": 1,
+      "phase": "day_discussion",
+      "player": "Player7",
+      "statement": "\"I think we should focus on getting to know each other and building our alliances before making any accusations. I'd like to start by proposing that we have a blindfolded dinner, where everyone can..."
+    },
+    {
+      "round": 1,
+      "phase": "day_discussion",
+      "player": "Player8",
+      "statement": "\"Last night's dinner party was quite the entertaining evening, I must say. I'm still trying to figure out who might have been feeling left out when I wasn't able to join in on the conversation.\""
+    },
+    {
+      "round": 1,
+      "phase": "day_discussion",
+      "player": "Player9",
+      "statement": "\"Good evening, everyone. I'd like to thank our host for the delicious dinner we just enjoyed. It's great to be here tonight and have some quality time with all of you.\"\n\n(Pause for dramatic effect)..."
+    },
+    {
+      "round": 1,
+      "phase": "day_discussion",
+      "player": "Player10",
+      "statement": "\"I've been noticing some inconsistencies in the rumors I've heard. Some of us are saying we're getting food earlier than others, but when asked about it directly, everyone says they don't know anyt..."
+    },
+    {
+      "round": 1,
+      "phase": "day_discussion",
+      "player": "Player11",
+      "statement": "\"I think we should focus on discussing our game plans for the day and make sure everyone is on the same page before making any decisions.\""
+    },
+    {
+      "round": 1,
+      "phase": "day_discussion",
+      "player": "Player12",
+      "statement": "\"I think we should all take a moment to reflect on our actions last week and try to make sure we're representing the team's goals correctly. I'm confident that together, we can achieve great things.\""
+    },
+    {
+      "round": 1,
+      "phase": "traitor_discussion",
+      "player": "Player5",
+      "statement": "I'll play it cool, trying not to raise any suspicions. \"Oh, Player10, I think there must be some miscommunication going around, but everyone's been eating the same time slots as usual, right?\""
+    },
+    {
+      "round": 1,
+      "phase": "traitor_discussion",
+      "player": "Player9",
+      "statement": "\"Good evening, everyone. I'd like to start by saying thank you for being here tonight and enjoying the company of our host. Unfortunately, some of us have been having some... issues with their role..."
+    },
+    {
+      "round": 1,
+      "phase": "traitor_discussion",
+      "player": "Player11",
+      "statement": "\"I've been observing our discussion patterns lately, and I think it's time for us to reassess how we communicate effectively within the group.\""
+    },
+    {
+      "round": 1,
+      "phase": "murder_vote",
+      "voter": "Player5",
+      "target": "Player1",
+      "reason": "Their inconsistencies suggest they're not as trustworthy as they seem."
+    },
+    {
+      "round": 1,
+      "phase": "murder_vote",
+      "voter": "Player9",
+      "target": "Player2",
+      "reason": "Player2's inconsistencies with their previous statements about the dinner party and their evasive answers when questioned directly make them seem s..."
+    },
+    {
+      "round": 1,
+      "phase": "murder_vote",
+      "voter": "Player11",
+      "target": "Player1",
+      "reason": "Their inconsistent behavior and attempt to shift blame suggests they might be playing both sides, increasing the chances of being eliminated."
+    },
+    {
+      "round": 1,
+      "phase": "murder",
+      "murdered": "Player1",
+      "role": "innocent",
+      "votes": {
+        "Player1": 2,
+        "Player2": 1
+      }
+    },
+    {
+      "round": 2,
+      "phase": "day_discussion",
+      "player": "Player2",
+      "statement": "\"I think it's time to get real about the dinner party tonight and figure out who might have been hiding in plain sight. Let's not let the small talk fool us, we need to focus on what really matters.\""
+    },
+    {
+      "round": 2,
+      "phase": "day_discussion",
+      "player": "Player3",
+      "statement": "\"I think it's time for everyone to take a step back and reflect on the true nature of this game. Let's focus on discussing our team's goals and strategies, rather than spreading rumors or making ac..."
+    },
+    {
+      "round": 2,
+      "phase": "day_discussion",
+      "player": "Player4",
+      "statement": "\"I think it's time to focus on our game plans and make sure everyone is aligned before making any decisions. Let's take a break from discussing food and rumors and come back to this topic later, sh..."
+    },
+    {
+      "round": 2,
+      "phase": "day_discussion",
+      "player": "Player5",
+      "statement": "\"I think it's safe to say that our host has some... concerns about us all. I'm sure everyone will be happy to help with the cleanup and make this evening as enjoyable as possible.\""
+    },
+    {
+      "round": 2,
+      "phase": "day_discussion",
+      "player": "Player6",
+      "statement": "\"I've noticed some inconsistencies in the rumors I've heard lately, and I think it's time for us to focus on discussing our game plans rather than gossiping. Let's keep the conversation positive an..."
+    },
+    {
+      "round": 2,
+      "phase": "day_discussion",
+      "player": "Player7",
+      "statement": "\"I think it's time to take a closer look at the dynamics of our team and figure out who might be playing us. I'm wondering if we can pool our resources and work together to get some answers, rather..."
+    },
+    {
+      "round": 2,
+      "phase": "day_discussion",
+      "player": "Player8",
+      "statement": "\"I think it's time to focus on the task at hand - enjoying dinner and discussing our plans for the day. Let's keep the conversation light and let the host handle any questions about food.\""
+    },
+    {
+      "round": 2,
+      "phase": "day_discussion",
+      "player": "Player9",
+      "statement": "\"Excuse me everyone, I think we should focus on our game plans for the day. Let's not get too caught up in speculation about last night's dinner party.\""
+    },
+    {
+      "round": 2,
+      "phase": "day_discussion",
+      "player": "Player10",
+      "statement": "\"I think we need to focus on the rumors and inconsistencies in our story before getting too caught up in small talk. Let's not forget, we all know who's been feeling left out at dinner parties late..."
+    },
+    {
+      "round": 2,
+      "phase": "day_discussion",
+      "player": "Player11",
+      "statement": "\"I'm not sure what all the fuss is about, but it seems like everyone's really getting to know each other. I think we should have a group discussion to clear up any misunderstandings and get everyon..."
+    },
+    {
+      "round": 2,
+      "phase": "day_discussion",
+      "player": "Player12",
+      "statement": "\"I think it's time to focus on our game plans and make sure everyone is committed to playing by the rules. Let's take a few minutes to discuss and agree on what we want to achieve tonight.\""
+    },
+    {
+      "round": 2,
+      "phase": "banishment_vote",
+      "voter": "Player2",
+      "target": "Player4",
+      "reason": "I suspect Player4's recent attempts to change the subject during dinner party discussions, combined with their overall demeanor, suggest they might..."
+    },
+    {
+      "round": 2,
+      "phase": "banishment_vote",
+      "voter": "Player3",
+      "target": "Player4",
+      "reason": "Their evasive behavior and lack of information about the dinner party, combined with the suspicious behaviors of some other players, raised red fla..."
+    },
+    {
+      "round": 2,
+      "phase": "banishment_vote",
+      "voter": "Player4",
+      "target": "Player3",
+      "reason": "Based on their consistent behavior and lack of emotional responses to the recent discussion, I believe they are the most trustworthy player among m..."
+    },
+    {
+      "round": 2,
+      "phase": "banishment_vote",
+      "voter": "Player5",
+      "target": "Player2",
+      "reason": "They seemed genuinely interested in discussing the game plans and didn't appear to be hiding anything, which makes them a trustworthy player."
+    },
+    {
+      "round": 2,
+      "phase": "banishment_vote",
+      "voter": "Player6",
+      "target": "Player2",
+      "reason": "I suspect Player2's evasive behavior and lack of direct participation in discussions suggest they might be hiding something, which is a traitorous ..."
+    },
+    {
+      "round": 2,
+      "phase": "banishment_vote",
+      "voter": "Player7",
+      "target": "Player3",
+      "reason": "Their aggressive behavior and hesitation to contribute to the conversation suggest they might be hiding something, which aligns with some of my sus..."
+    },
+    {
+      "round": 2,
+      "phase": "banishment_vote",
+      "voter": "Player8",
+      "target": "Player2",
+      "reason": "Given the group's discussion about food and speculating about last night's dinner party, I believe that Player2 might be trying to deflect attentio..."
+    },
+    {
+      "round": 2,
+      "phase": "banishment_vote",
+      "voter": "Player9",
+      "target": "Player8",
+      "reason": "Their brief comment about \"not knowing anyone about food\" was suspicious and seemed out of place, making me wonder if they're hiding something."
+    },
+    {
+      "round": 2,
+      "phase": "banishment_vote",
+      "voter": "Player10",
+      "target": "Player3",
+      "reason": "I eliminated Player3 because their evasive behavior about dinner party dynamics, combined with the suspicious conversation they had with Player9 ea..."
+    },
+    {
+      "round": 2,
+      "phase": "banishment_vote",
+      "voter": "Player11",
+      "target": "Player3",
+      "reason": "I believe Player3's consistent evasiveness and seeming nervousness when discussing the dinner party may indicate that they are hiding something. Th..."
+    },
+    {
+      "round": 2,
+      "phase": "banishment_vote",
+      "voter": "Player12",
+      "target": "Player2",
+      "reason": "I believe Player2's attempts to deflect attention with lengthy statements and their overall behavior suggest they might be hiding something, which ..."
+    },
+    {
+      "round": 2,
+      "phase": "banishment",
+      "banished": "Player3",
+      "role": "innocent",
+      "votes": {
+        "Player4": 2,
+        "Player3": 4,
+        "Player2": 4,
+        "Player8": 1
+      }
+    },
+    {
+      "round": 2,
+      "phase": "traitor_discussion",
+      "player": "Player5",
+      "statement": "\"I'm glad to see we're all having a great time discussing the game plans and getting to know each other better. However, I think it's high time we refocused on our true objectives: winning this game!\""
+    },
+    {
+      "round": 2,
+      "phase": "traitor_discussion",
+      "player": "Player9",
+      "statement": "\"Everyone's been so excited about tonight's dinner plans. I'm looking forward to catching up and discussing some new ideas. Let's just focus on enjoying each other's company, shall we?\""
+    },
+    {
+      "round": 2,
+      "phase": "traitor_discussion",
+      "player": "Player11",
+      "statement": "\"I think we're all forgetting what really matters here - our game plan. Let's focus on playing to the best of our abilities, not getting caught up in unnecessary drama.\""
+    },
+    {
+      "round": 2,
+      "phase": "murder_vote",
+      "voter": "Player5",
+      "target": "Player2",
+      "reason": "I eliminated Player2 due to their suspicious behavior and evasive comments about dinner party dynamics. Their attempts to deflect attention with le..."
+    },
+    {
+      "round": 2,
+      "phase": "murder_vote",
+      "voter": "Player9",
+      "target": "Player8",
+      "reason": "Their comments about not knowing anyone about food seemed suspicious to me, and their brief interaction with Player9 also raised red flags."
+    },
+    {
+      "round": 2,
+      "phase": "murder_vote",
+      "voter": "Player11",
+      "target": "Player4",
+      "reason": "I believe Player4 is an innocent trying to hide behind their alibis and suspicious behavior. Their recent evasive answers and seeming nervousness w..."
+    },
+    {
+      "round": 2,
+      "phase": "murder",
+      "murdered": "Player2",
+      "role": "innocent",
+      "votes": {
+        "Player2": 1,
+        "Player8": 1,
+        "Player4": 1
+      }
+    },
+    {
+      "round": 3,
+      "phase": "day_discussion",
+      "player": "Player4",
+      "statement": "\"I'd like to discuss our recent conversation about Player10's evasive behavior and whether we should be concerned. I think it would be beneficial if we could have an open discussion with each other..."
+    },
+    {
+      "round": 3,
+      "phase": "day_discussion",
+      "player": "Player5",
+      "statement": "\"I'd like to take the opportunity to clear up any misconceptions about our game plan. We're all in this together, and I believe it's essential we work as a cohesive unit to achieve our goal of winn..."
+    },
+    {
+      "round": 3,
+      "phase": "day_discussion",
+      "player": "Player6",
+      "statement": "\"I think we should continue gathering information and forming alliances to increase our chances of identifying the traitors. Who's with me on that?\""
+    },
+    {
+      "round": 3,
+      "phase": "day_discussion",
+      "player": "Player7",
+      "statement": "\"I'm starting to think that the dinner party was more than just a social gathering. I've noticed some inconsistencies in everyone's stories, and now with Player2's murder, it seems like we might ha..."
+    },
+    {
+      "round": 3,
+      "phase": "day_discussion",
+      "player": "Player8",
+      "statement": "\"I've been thinking, and I'm starting to suspect that we're not as safe as we thought. I need some reassurance from my fellow players before making any drastic decisions.\""
+    },
+    {
+      "round": 3,
+      "phase": "day_discussion",
+      "player": "Player9",
+      "statement": "\"I don't know what to make of the recent voting, but I think we should focus on keeping our team intact for now. It's possible that there are some players hiding something, and let's not jump to co..."
+    },
+    {
+      "round": 3,
+      "phase": "day_discussion",
+      "player": "Player10",
+      "statement": "\"I'm not surprised by the elimination of Player3, as their evasiveness and nervousness are concerning. I think we've been playing too closely to the suspected traitors' game, but it's still worth i..."
+    },
+    {
+      "round": 3,
+      "phase": "day_discussion",
+      "player": "Player11",
+      "statement": "\"I think we should focus on verifying the information and not jumping to conclusions just yet. Let's stick to what we know and see if anything else comes up during our conversation.\""
+    },
+    {
+      "round": 3,
+      "phase": "day_discussion",
+      "player": "Player12",
+      "statement": "\"I'm starting to believe that the dinner party discussion might have been more than just a normal conversation about food distribution. I think it's time for some clarification - who said what and ..."
+    },
+    {
+      "round": 3,
+      "phase": "banishment_vote",
+      "voter": "Player4",
+      "target": "Player5",
+      "reason": "Their evasive behavior and nervous tone when questioned about the discussion on food distribution suggest they might be hiding something, which ali..."
+    },
+    {
+      "round": 3,
+      "phase": "banishment_vote",
+      "voter": "Player5",
+      "target": "Player4",
+      "reason": "I think Player4 might be hiding something due to their nervous behavior during the discussion about dinner, and their comments seem more scripted t..."
+    },
+    {
+      "round": 3,
+      "phase": "banishment_vote",
+      "voter": "Player6",
+      "target": "Player4",
+      "reason": "I believe Player4 is one of the original innocents and should be protected from accusations. Their evasive answers and lack of direct involvement i..."
+    },
+    {
+      "round": 3,
+      "phase": "banishment_vote",
+      "voter": "Player7",
+      "target": "Player10",
+      "reason": "Player10's evasive behavior and mention of getting food earlier than others, combined with their suspicious actions since the dinner party discussi..."
+    },
+    {
+      "round": 3,
+      "phase": "banishment_vote",
+      "voter": "Player8",
+      "target": "Player5",
+      "reason": "Given their conflicting behavior earlier in the game and being suspected by multiple players, I believe they are likely a traitor."
+    },
+    {
+      "round": 3,
+      "phase": "banishment_vote",
+      "voter": "Player9",
+      "target": "Player6",
+      "reason": "Their behavior seemed suspicious earlier and their silence on the dinner party discussion, which might suggest they're hiding something."
+    },
+    {
+      "round": 3,
+      "phase": "banishment_vote",
+      "voter": "Player10",
+      "target": "Player8",
+      "reason": "Their evasive behavior and attempts to deflect attention suggest they may be hiding something, making me trust them less."
+    },
+    {
+      "round": 3,
+      "phase": "banishment_vote",
+      "voter": "Player11",
+      "target": "Player8",
+      "reason": "Given the conversation that started with the dinner party discussion, and considering the confidence and concern shown by other players, I believe ..."
+    },
+    {
+      "round": 3,
+      "phase": "banishment_vote",
+      "voter": "Player12",
+      "target": "Player4",
+      "reason": "I believe Player4 might be hiding something due to their evasive answers during the dinner party discussion and inconsistencies in their behavior t..."
+    },
+    {
+      "round": 3,
+      "phase": "banishment",
+      "banished": "Player4",
+      "role": "innocent",
+      "votes": {
+        "Player5": 2,
+        "Player4": 3,
+        "Player10": 1,
+        "Player6": 1,
+        "Player8": 2
+      }
+    },
+    {
+      "round": 3,
+      "phase": "traitor_discussion",
+      "player": "Player5",
+      "statement": "\"I think it's time to revisit our game plan and reassess our roles. With the new information about Player4 being an INNOCENT, I believe we should focus on eliminating players who might be hiding so..."
+    },
+    {
+      "round": 3,
+      "phase": "traitor_discussion",
+      "player": "Player9",
+      "statement": "\"Hello everyone, I think we've got some interesting dynamics going on here. As I was reading through the notes from my fellow traitor, I see that they seem to be trying to make their suspicions abo..."
+    },
+    {
+      "round": 3,
+      "phase": "traitor_discussion",
+      "player": "Player11",
+      "statement": "I'll continue to play the role of Player11, maintaining my innocence and subtly hinting at potential betrayal from Player9. I might say something like, \"Hey, can we focus on our game plans for toni..."
+    },
+    {
+      "round": 3,
+      "phase": "murder_vote",
+      "voter": "Player5",
+      "target": "Player10",
+      "reason": "Given the evasive behavior and attempts to deflect attention from themselves, I believe they might be hiding something."
+    },
+    {
+      "round": 3,
+      "phase": "murder_vote",
+      "voter": "Player9",
+      "target": "Player6",
+      "reason": "Their suspicious behavior and seeming lack of information about their own actions raise red flags, making me suspect they might be a traitor."
+    },
+    {
+      "round": 3,
+      "phase": "murder_vote",
+      "voter": "Player11",
+      "target": "Player12",
+      "reason": "Random selection due to invalid response"
+    },
+    {
+      "round": 3,
+      "phase": "murder",
+      "murdered": "Player10",
+      "role": "innocent",
+      "votes": {
+        "Player10": 1,
+        "Player6": 1,
+        "Player12": 1
+      }
+    },
+    {
+      "round": 4,
+      "phase": "day_discussion",
+      "player": "Player5",
+      "statement": "\"Hey everyone, I think it's time for us to discuss the game plans. I'm not sure who's trying to distract me from the real issue, but I'd love to hear your thoughts on what we're all working towards.\""
+    },
+    {
+      "round": 4,
+      "phase": "day_discussion",
+      "player": "Player6",
+      "statement": "\"I believe we've been discussing the dinner party, and I think it's time to put our minds together to figure out who might be hiding something. I want to ask some more questions before making any a..."
+    },
+    {
+      "round": 4,
+      "phase": "day_discussion",
+      "player": "Player7",
+      "statement": "\"I think we need to be extra cautious tonight. With new information that Player10 was murdered during the night, I'm going to focus on eliminating players 8 and 11 from now on.\""
+    },
+    {
+      "round": 4,
+      "phase": "day_discussion",
+      "player": "Player8",
+      "statement": "I think it's time to be cautious. Given the new information, including Player4's innocence and Player10's suspicious behavior, I believe there might be more traitors in the group than initially tho..."
+    },
+    {
+      "round": 4,
+      "phase": "day_discussion",
+      "player": "Player9",
+      "statement": "\"I believe it's time to get to the bottom of this conversation. As someone who has been trying to maintain a neutral image, I think we all deserve a chance to prove ourselves before making any accu..."
+    },
+    {
+      "round": 4,
+      "phase": "day_discussion",
+      "player": "Player11",
+      "statement": "\"I think we should focus on the rumors and inconsistencies in our story before getting too caught up in small talk, don't you all agree?\" I ask the group with a subtle hint at my possible betrayal."
+    },
+    {
+      "round": 4,
+      "phase": "day_discussion",
+      "player": "Player12",
+      "statement": "\"Excuse me, I think we can all agree that Player8 was just trying to take the pressure off and have a bit of fun. Let's not jump to conclusions based on limited information, but I do want to expres..."
+    },
+    {
+      "round": 4,
+      "phase": "banishment_vote",
+      "voter": "Player5",
+      "target": "Player7",
+      "reason": "I believe that the recent discussion about being extra cautious tonight and focusing on eliminating players 8 and 11, while suggesting that we need..."
+    },
+    {
+      "round": 4,
+      "phase": "banishment_vote",
+      "voter": "Player6",
+      "target": "Player9",
+      "reason": "I have reason to believe that Player9 is involved with the traitors and their suspicious behavior, including evasive answers about food distributio..."
+    },
+    {
+      "round": 4,
+      "phase": "banishment_vote",
+      "voter": "Player7",
+      "target": "Player8",
+      "reason": "The new information that Player4 is innocent and the inconsistencies in Player10's earlier statement, combined with Player8's evasive behavior abou..."
+    },
+    {
+      "round": 4,
+      "phase": "banishment_vote",
+      "voter": "Player8",
+      "target": "Player9",
+      "reason": "I believe that Player9's consistent attempts to maintain a neutral image and provide information about the group's dynamics, combined with their re..."
+    },
+    {
+      "round": 4,
+      "phase": "banishment_vote",
+      "voter": "Player9",
+      "target": "Player5",
+      "reason": "I believe that my actions and behavior, combined with the suspicious nature of players 8 and 11's responses, make them more likely to be traitors. ..."
+    },
+    {
+      "round": 4,
+      "phase": "banishment_vote",
+      "voter": "Player11",
+      "target": "Player6",
+      "reason": "I believe Player6's inconsistencies in their story and suspicious behavior, such as asking to speak with me privately earlier tonight, make them a ..."
+    },
+    {
+      "round": 4,
+      "phase": "banishment_vote",
+      "voter": "Player12",
+      "target": "Player5",
+      "reason": "I believe Player5 was trying to eliminate both Player7 and Player8 by spreading false information about their actions, making it seem like they wer..."
+    },
+    {
+      "round": 4,
+      "phase": "banishment",
+      "banished": "Player5",
+      "role": "traitor",
+      "votes": {
+        "Player7": 1,
+        "Player9": 2,
+        "Player8": 1,
+        "Player5": 2,
+        "Player6": 1
+      }
+    },
+    {
+      "round": 4,
+      "phase": "traitor_discussion",
+      "player": "Player9",
+      "statement": "\"I think we should focus on evaluating the new information more objectively, rather than jumping to conclusions. Let's take a step back and reassess our understanding of the situation.\""
+    },
+    {
+      "round": 4,
+      "phase": "traitor_discussion",
+      "player": "Player11",
+      "statement": "\"Good evening, everyone. I think we've all had enough of the rumors and speculation for tonight. Let's focus on enjoying each other's company and having a great time.\" (subtly hinting at Player9's ..."
+    },
+    {
+      "round": 4,
+      "phase": "murder_vote",
+      "voter": "Player9",
+      "target": "Player7",
+      "reason": "The suspicious behavior of Player7 and their evasive answers to questions suggest that they might be more than just an innocent bystander."
+    },
+    {
+      "round": 4,
+      "phase": "murder_vote",
+      "voter": "Player11",
+      "target": "Player6",
+      "reason": "I think Player6's inconsistencies in their story and suspicious behavior, such as asking to speak with me privately earlier tonight, make them a li..."
+    },
+    {
+      "round": 4,
+      "phase": "murder",
+      "murdered": "Player6",
+      "role": "innocent",
+      "votes": {
+        "Player7": 1,
+        "Player6": 1
+      }
+    },
+    {
+      "round": 5,
+      "phase": "day_discussion",
+      "player": "Player7",
+      "statement": "\"I think we need to re-evaluate our dynamics and focus on building trust before getting too caught up in petty squabbles. I'd like to propose that we all take a step back, reflect on our actions, a..."
+    },
+    {
+      "round": 5,
+      "phase": "day_discussion",
+      "player": "Player8",
+      "statement": "\"Players, I think it's time to have an open discussion about my behavior and actions so far. I want to clarify some things and make sure everyone is on the same page.\""
+    },
+    {
+      "round": 5,
+      "phase": "day_discussion",
+      "player": "Player9",
+      "statement": "\"Hey everyone, I think we've reached a critical point in our discussion. As a neutral player, I believe it's essential to consider all the information before making a decision. I'm voting for Playe..."
+    },
+    {
+      "round": 5,
+      "phase": "day_discussion",
+      "player": "Player11",
+      "statement": "\"Hey everyone, I think we should focus on the rumors and inconsistencies in our story before getting too caught up in small talk. As someone who's had some... disagreements with others in this grou..."
+    },
+    {
+      "round": 5,
+      "phase": "day_discussion",
+      "player": "Player12",
+      "statement": "\"I think it's time we take a step back and re-evaluate our dynamics, don't you all agree? I've noticed some... inconsistencies in the group's story that have me questioning who might be hiding some..."
+    },
+    {
+      "round": 5,
+      "phase": "banishment_vote",
+      "voter": "Player7",
+      "target": "Player8",
+      "reason": "Their evasiveness about the dinner party and inconsistencies in their earlier statement raise significant red flags, making them a prime suspect."
+    },
+    {
+      "round": 5,
+      "phase": "banishment_vote",
+      "voter": "Player8",
+      "target": "Player9",
+      "reason": "Due to the lack of concrete evidence and inconsistencies in his statements, I have reason to believe that Player9 may be a traitor."
+    },
+    {
+      "round": 5,
+      "phase": "banishment_vote",
+      "voter": "Player9",
+      "target": "Player7",
+      "reason": "Based on the recent discussion and Player7's attempts to re-evaluate their dynamics, I believe that some inconsistencies in their story have led me..."
+    },
+    {
+      "round": 5,
+      "phase": "banishment_vote",
+      "voter": "Player11",
+      "target": "Player9",
+      "reason": "While I still have some doubts about Player9's intentions, their recent behavior has seemed overly cautious and suspicious. It's possible that they..."
+    },
+    {
+      "round": 5,
+      "phase": "banishment_vote",
+      "voter": "Player12",
+      "target": "Player8",
+      "reason": "I believe Player8's initial behavior was suspicious, as they seemed overly defensive and evasive when discussing their actions."
+    },
+    {
+      "round": 5,
+      "phase": "banishment",
+      "banished": "Player9",
+      "role": "traitor",
+      "votes": {
+        "Player8": 2,
+        "Player9": 2,
+        "Player7": 1
+      }
+    },
+    {
+      "round": 5,
+      "phase": "traitor_discussion",
+      "player": "Player11",
+      "statement": "\"Hey everyone, I think we've had a good discussion about the recent events and how they might be relevant to our game plan. Let's take some time to reflect on what we've discussed and see where it ..."
+    },
+    {
+      "round": 5,
+      "phase": "murder_vote",
+      "voter": "Player11",
+      "target": "Player12",
+      "reason": "I believe Player12's inconsistent behavior and overly defensive attitude towards the dinner party dynamics raise significant suspicions. Their voti..."
+    },
+    {
+      "round": 5,
+      "phase": "murder",
+      "murdered": "Player12",
+      "role": "innocent",
+      "votes": {
+        "Player12": 1
+      }
+    },
+    {
+      "round": 6,
+      "phase": "day_discussion",
+      "player": "Player7",
+      "statement": "\"I believe it's time for everyone to focus on building trust and verifying each other's statements before making any moves. We need to be cautious and considerate of one another's words, as the sta..."
+    },
+    {
+      "round": 6,
+      "phase": "day_discussion",
+      "player": "Player8",
+      "statement": "\"I think it's time for us to take a step back and re-evaluate our dynamics as a group. With the new information about Player4 being an innocent, I believe it's essential that we all trust each othe..."
+    },
+    {
+      "round": 6,
+      "phase": "day_discussion",
+      "player": "Player11",
+      "statement": "\"I think it's time we re-evaluate our dynamics and focus on building trust before getting too caught up in petty squabbles. As someone who's had some... disagreements with others in this group, I b..."
+    },
+    {
+      "round": 6,
+      "phase": "banishment_vote",
+      "voter": "Player7",
+      "target": "Player8",
+      "reason": "While I still have concerns about Player8's evasiveness and inconsistencies, their recent behavior does seem suspicious. However, given the new inf..."
+    },
+    {
+      "round": 6,
+      "phase": "banishment_vote",
+      "voter": "Player8",
+      "target": "Player7",
+      "reason": "Random selection due to invalid response"
+    },
+    {
+      "round": 6,
+      "phase": "banishment_vote",
+      "voter": "Player11",
+      "target": "Player7",
+      "reason": "While I think Player9 is still a possible traitor, Player8's initial behavior was suspicious and evasive when discussing their actions, which led m..."
+    },
+    {
+      "round": 6,
+      "phase": "banishment",
+      "banished": "Player7",
+      "role": "innocent",
+      "votes": {
+        "Player8": 1,
+        "Player7": 2
+      }
+    },
+    {
+      "round": 6,
+      "phase": "game_over",
+      "winner": "traitor"
+    }
+  ]
+}
