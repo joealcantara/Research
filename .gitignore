@@ -80,9 +80,18 @@ Thumbs.db
 .ipynb_checkpoints/
 *.ipynb
 
+# Data directories (exclude all data, keep structure only)
+scientist_ai/data/
+datasets/
+
 # Data files (keep structure, ignore large data)
-# Uncomment if you want to exclude all data files:
-# *.csv
-# *.data
-# *.txt
+*.xz
+*.gz
+*.zip
+*.tar
+*.data
 datasets/numerai/v5.2/*.temp
+
+# But allow small test fixtures in experiments
+!experiments/**/synthetic_datasets/*.csv
+!experiments/**/synthetic_datasets/*.txt
