@@ -79,6 +79,13 @@ struct MethodResult {
 }
 
 fn main() {
+    // Configure rayon thread pool with larger stack size for large-scale problems
+    // Default 2MB per thread is insufficient for 596-variable problems
+    rayon::ThreadPoolBuilder::new()
+        .stack_size(16 * 1024 * 1024)  // 16MB per thread
+        .build_global()
+        .expect("Failed to configure rayon thread pool");
+
     println!("=== Scientist AI: Structure Learning ===\n");
 
     // Parse command line arguments

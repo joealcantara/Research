@@ -3,6 +3,7 @@ use std::collections::HashMap;
 use itertools::Itertools;
 use statrs::function::gamma::ln_gamma;
 use serde::Deserialize;
+use nalgebra as na;
 
 #[derive(Debug)]
 pub enum VariableType {
@@ -487,7 +488,7 @@ pub fn estimate_continuous_parameters(
                 ContinuousParams::Gaussian { mean, std },
             );
         } else {
-            // Case 2: Has parents - Linear regression
+            // Case 2: Has parents - Linear regression using nalgebra
             // Build design matrix X and response vector y
 
             let n = df.height();
@@ -495,21 +496,25 @@ pub fn estimate_continuous_parameters(
 
             // Get response variable y
             let y_series = df.column(var)?;
-            let y: Vec<f64> = y_series.f64()?.into_no_null_iter().collect();
+            let y_vec: Vec<f64> = y_series.f64()?.into_no_null_iter().collect();
 
-            // Build X matrix: [1, parent1, parent2, ...] for each row
+            // Build design matrix X using nalgebra (heap-allocated)
             // X is n × (p+1), including intercept column
-            let mut x_matrix: Vec<Vec<f64>> = vec![vec![1.0; p + 1]; n];
+            let mut x_data: Vec<f64> = Vec::with_capacity(n * (p + 1));
 
-            for (i, parent) in parents.iter().enumerate() {
+            // First column: intercept (all 1.0)
+            for _ in 0..n {
+                x_data.push(1.0);
+            }
+
+            // Remaining columns: parent values
+            for parent in parents.iter() {
                 let parent_series = df.column(parent)?;
 
                 // Handle both f64 (continuous) and i64 (categorical) parents
                 let parent_vals: Vec<f64> = if let Ok(vals) = parent_series.f64() {
-                    // Already f64 (continuous variable)
                     vals.into_no_null_iter().collect()
                 } else if let Ok(vals) = parent_series.i64() {
-                    // i64 (categorical variable) - cast to f64
                     vals.into_no_null_iter().map(|v| v as f64).collect()
                 } else {
                     return Err(PolarsError::ComputeError(
@@ -517,59 +522,31 @@ pub fn estimate_continuous_parameters(
                     ));
                 };
 
-                for row in 0..n {
-                    x_matrix[row][i + 1] = parent_vals[row]; // Column 0 is intercept (1.0)
-                }
+                x_data.extend(parent_vals);
             }
 
-            // Solve least squares: coeffs = (X^T X)^{-1} X^T y
-            // This is a manual implementation to avoid adding nalgebra dependency
+            // Create nalgebra matrices (stored on heap)
+            let x_matrix = na::DMatrix::from_vec(n, p + 1, x_data);
+            let y_vector = na::DVector::from_vec(y_vec);
 
-            // Compute X^T X (symmetric matrix, size (p+1) × (p+1))
-            let mut xtx = vec![vec![0.0; p + 1]; p + 1];
-            for i in 0..=p {
-                for j in 0..=p {
-                    let mut sum = 0.0;
-                    for row in 0..n {
-                        sum += x_matrix[row][i] * x_matrix[row][j];
-                    }
-                    xtx[i][j] = sum;
-                }
-            }
+            // Solve least squares using SVD (numerically stable)
+            // Clone x_matrix since SVD consumes it
+            let svd = x_matrix.clone().svd(true, true);
+            let coeffs_vec = svd.solve(&y_vector, 1e-10).map_err(|e| {
+                PolarsError::ComputeError(
+                    format!("Failed to solve linear regression for {}: {}", var, e).into()
+                )
+            })?;
 
-            // Compute X^T y (vector, size p+1)
-            let mut xty = vec![0.0; p + 1];
-            for i in 0..=p {
-                let mut sum = 0.0;
-                for row in 0..n {
-                    sum += x_matrix[row][i] * y[row];
-                }
-                xty[i] = sum;
-            }
+            let intercept = coeffs_vec[0];
+            let slopes: Vec<f64> = coeffs_vec.as_slice()[1..].to_vec();
 
-            // Solve (X^T X) coeffs = X^T y using Gaussian elimination
-            let coeffs = solve_linear_system(&xtx, &xty)?;
-
-            let intercept = coeffs[0];
-            let slopes: Vec<f64> = coeffs[1..].to_vec();
-
-            // Compute residuals and residual std
-            let mut residuals = Vec::new();
-            for row in 0..n {
-                let mut prediction = intercept;
-                for (i, slope) in slopes.iter().enumerate() {
-                    prediction += slope * x_matrix[row][i + 1];
-                }
-                residuals.push(y[row] - prediction);
-            }
+            // Compute residuals
+            let predictions = &x_matrix * &coeffs_vec;
+            let residuals = &y_vector - &predictions;
 
             // Compute std of residuals
-            let mean_residual: f64 = residuals.iter().sum::<f64>() / n as f64;
-            let variance: f64 = residuals
-                .iter()
-                .map(|r| (r - mean_residual).powi(2))
-                .sum::<f64>()
-                / n as f64;
+            let variance = residuals.norm_squared() / n as f64;
             let std = variance.sqrt() + 1e-6;
 
             all_params.insert(
@@ -584,75 +561,6 @@ pub fn estimate_continuous_parameters(
     }
 
     Ok(all_params)
-}
-
-/// Solve linear system Ax = b using Gaussian elimination with partial pivoting.
-///
-/// # Arguments
-/// * `a` - Coefficient matrix (n × n)
-/// * `b` - Right-hand side vector (n)
-///
-/// # Returns
-/// Solution vector x (n)
-///
-/// # Errors
-/// Returns error if matrix is singular
-fn solve_linear_system(a: &[Vec<f64>], b: &[f64]) -> Result<Vec<f64>, PolarsError> {
-    let n = a.len();
-
-    // Create augmented matrix [A | b]
-    let mut aug: Vec<Vec<f64>> = Vec::new();
-    for i in 0..n {
-        let mut row = a[i].clone();
-        row.push(b[i]);
-        aug.push(row);
-    }
-
-    // Forward elimination with partial pivoting
-    for col in 0..n {
-        // Find pivot (max element in column)
-        let mut max_row = col;
-        let mut max_val = aug[col][col].abs();
-
-        for row in (col + 1)..n {
-            if aug[row][col].abs() > max_val {
-                max_val = aug[row][col].abs();
-                max_row = row;
-            }
-        }
-
-        // Check for singular matrix
-        if max_val < 1e-10 {
-            return Err(PolarsError::ComputeError(
-                "Singular matrix in linear regression".into()
-            ));
-        }
-
-        // Swap rows
-        if max_row != col {
-            aug.swap(col, max_row);
-        }
-
-        // Eliminate column
-        for row in (col + 1)..n {
-            let factor = aug[row][col] / aug[col][col];
-            for j in col..=n {
-                aug[row][j] -= factor * aug[col][j];
-            }
-        }
-    }
-
-    // Back substitution
-    let mut x = vec![0.0; n];
-    for i in (0..n).rev() {
-        let mut sum = aug[i][n];
-        for j in (i + 1)..n {
-            sum -= aug[i][j] * x[j];
-        }
-        x[i] = sum / aug[i][i];
-    }
-
-    Ok(x)
 }
 
 /// Compute log-likelihood of data given structure and parameters.

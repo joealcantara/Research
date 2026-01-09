@@ -1,0 +1,10 @@
+# Single 5-era window test: 596 features, 12,325 observations
+# Performance benchmark for windowed causal discovery
+
+input = "experiments/window_test_5eras_596features.csv"
+output = "experiments/window_test_results.json"
+beam_size = 10
+max_rounds = 20
+
+[[scoring]]
+method = "BIC"
