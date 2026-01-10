@@ -13,7 +13,11 @@ def run_test(code, input_str, timeout=5):
         # Return both stdout and stderr for debugging
         if result.stderr:
             return f"ERROR: {result.stderr.strip()}"
-        return result.stdout.strip()
+
+        # Normalize whitespace: strip trailing spaces from each line
+        output = result.stdout
+        normalized = '\n'.join(line.rstrip() for line in output.split('\n'))
+        return normalized.strip()
     except subprocess.TimeoutExpired:
         return "TIMEOUT"
     except Exception as e:
